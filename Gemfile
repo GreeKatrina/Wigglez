@@ -34,6 +34,8 @@ end
 
 gem 'devise'
 
+gem 'factory_girl_rails', '~> 4.0'
+
 group :test do
   gem 'rspec', '~> 2.14.0'
   gem 'pry-byebug'

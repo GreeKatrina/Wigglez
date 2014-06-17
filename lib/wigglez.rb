@@ -2,7 +2,7 @@ require 'pry-byebug'
 require 'active_record'
 
 module Wigglez
-  def self.do
+  def self.db
     if @__db_instance.nil?
       if ENV['DB_ENV'] == 'test'
         @__db_instance = Database::SQL.new
