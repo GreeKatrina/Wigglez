@@ -32,18 +32,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'devise'
-
-gem 'factory_girl_rails', '~> 4.0'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec', '~> 2.14.0'
   gem 'pry-byebug'
-  gem 'sqlite3'
   gem 'activerecord', '~> 4.0.5'
   gem 'active_record_tasks', '~> 1.1.0'
-  gem 'sinatra'
-  gem 'sinatra-contrib' #reloader so you dont have to restart server
   gem 'thin'
   gem 'rack-test'
   gem 'capybara' #add-on to rspec to test views
