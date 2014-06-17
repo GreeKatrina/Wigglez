@@ -5,6 +5,7 @@ module Wigglez
     def initialize(id, name, email, password, password_confirmation)
       @id = id
       @name = name
+      @email = email
       @password = password
       @password_confirmation = password_confirmation
     end

@@ -32,7 +32,7 @@ module Wigglez
 
       def get_user_by_session_id(sid)
         return nil if @sessions[sid].nil?
-        user_id = sessions[sid][:user_id]
+        user_id = @sessions[sid][:user_id]
         user_attrs = @users[user_id]
         User.new(user_attrs[:id], user_attrs[:name], user_attrs[:email], user_attrs[:password], user_attrs[:password_confirmation])
       end
@@ -77,8 +77,8 @@ module Wigglez
         )
       end
 
-      def get_wig(attribute)
-        wig_attrs = @wigs.values.find { |attrs| attrs[attribute.key] == attribute.value }
+      def get_wig(id)
+        wig_attrs = @wigs[id]
         return nil if wig_attrs.nil?
         Wig.new(
           wig_attrs[:id],
