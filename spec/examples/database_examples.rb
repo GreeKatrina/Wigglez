@@ -35,6 +35,17 @@ shared_examples 'a database' do
     expect(user.email).to eq @user.email
   end
 
+  it 'retreives a user by email' do
+    user = db.get_user_by_email(@user.email)
+    expect(user.name).to eq 'Katrina'
+    expect(user.email).to eq 'theo@gmail.com'
+  end
+
+  it 'creates a session and returns its id' do
+    session_id = db.create_session(:user_id => @user.id)
+    expect(session_id).to_not be_a Hash
+  end
+
   it "allows a donor to create a wig" do
     expect(@wig).to_not be_nil
     expect(@wig.donor).to eq 1
