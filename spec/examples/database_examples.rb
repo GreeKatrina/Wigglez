@@ -32,7 +32,7 @@ shared_examples 'a database' do
     size: 'average'
   )}
 
-  xit 'creates a user ' do
+  it 'creates a user ' do
     expect(user.id).to_not be_nil
     expect(user.name).to eq 'Katrina'
   end

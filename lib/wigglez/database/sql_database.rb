@@ -31,12 +31,12 @@ module Wigglez
 
       def create_user(attrs)
         new_user = User.create(attrs)
-        User.build(new_user[:id], new_user[:name], new_user[:password], new_user[:password_confirmation])
+        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
       end
 
       def create_wig(attrs)
         new_wig = Wig.create(attrs)
-        Wig.build(
+        Wigglez::Wig.new(
             new_wig.id,
             new_wig.donor,
             new_wig.receiver,
