@@ -29,6 +29,10 @@ module Wigglez
         belongs_to :receiver, :class_name => "User"
       end
 
+      class Session < ActiveRecord::Base
+        has_one :users
+      end
+
       def create_user(attrs)
         new_user = User.create(attrs)
         Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
@@ -39,30 +43,71 @@ module Wigglez
         Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
       end
 
+      def get_user_by_email(email)
+        new_user = User.find_by email: email
+        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+      end
+
       def create_wig(attrs)
         new_wig = Wig.create(attrs)
         Wigglez::Wig.new(
-            new_wig.id,
-            new_wig.donor,
-            new_wig.receiver,
-            new_wig.tracking_number,
-            new_wig.received,
-            new_wig.material,
-            new_wig.color,
-            new_wig.length,
-            new_wig.gender,
-            new_wig.retail_estimate,
-            new_wig.date_picked,
-            new_wig.condition,
-            new_wig.construction,
-            new_wig.size
-          )
+          new_wig.id,
+          new_wig.donor_id,
+          new_wig.receiver_id,
+          new_wig.tracking_number,
+          new_wig.received,
+          new_wig.material,
+          new_wig.color,
+          new_wig.length,
+          new_wig.gender,
+          new_wig.retail_estimate,
+          new_wig.date_picked,
+          new_wig.condition,
+          new_wig.construction,
+          new_wig.size
+        )
       end
 
       def get_wig(id)
+        new_wig = Wig.find(id)
+        Wigglez::Wig.new(
+          new_wig.id,
+          new_wig.donor_id,
+          new_wig.receiver_id,
+          new_wig.tracking_number,
+          new_wig.received,
+          new_wig.material,
+          new_wig.color,
+          new_wig.length,
+          new_wig.gender,
+          new_wig.retail_estimate,
+          new_wig.date_picked,
+          new_wig.condition,
+          new_wig.construction,
+          new_wig.size
+        )
       end
 
       def all_wigs
+        wigs = Wig.all
+        wigs.map do |w|
+          w = Wigglez::Wig.new(
+              w.id,
+              w.donor_id,
+              w.receiver_id,
+              w.tracking_number,
+              w.received,
+              w.material,
+              w.color,
+              w.length,
+              w.gender,
+              w.retail_estimate,
+              w.date_picked,
+              w.condition,
+              w.construction,
+              w.size
+            )
+        end
       end
 
       def CLEAR_ALL

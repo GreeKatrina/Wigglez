@@ -6,7 +6,7 @@ describe 'Wigglez database singleton' do
     database2 = Wigglez.db
     # Create some data just in case
     database1.create_wig(
-      donor: 1,
+      donor_id: 1,
       material: 'synthetic',
       color: 'brown',
       length: 'long',

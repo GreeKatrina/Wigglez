@@ -6,8 +6,6 @@ module Wigglez
       def initialize
         @users = {}
         @users_id_counter = 100
-        @sessions = {}
-        @sessions_id_counter = 100
         @wigs = {}
         @wigs_id_counter = 500
       end
@@ -24,19 +22,6 @@ module Wigglez
         User.new(attrs[:id], attrs[:name], attrs[:email], attrs[:password], attrs[:password_confirmation])
       end
 
-      def create_session(attrs)
-        new_id = (@sessions_id_counter += 1)
-        @sessions[new_id] = attrs
-        return new_id
-      end
-
-      def get_user_by_session_id(sid)
-        return nil if @sessions[sid].nil?
-        user_id = @sessions[sid][:user_id]
-        user_attrs = @users[user_id]
-        User.new(user_attrs[:id], user_attrs[:name], user_attrs[:email], user_attrs[:password], user_attrs[:password_confirmation])
-      end
-
       def get_user_by_email(email)
         user_attrs = @users.values.find { |attrs| attrs[:email] == email }
         return nil if user_attrs.nil?
@@ -47,7 +32,7 @@ module Wigglez
         new_id = (@wigs_id_counter += 1)
         @wigs[new_id] = attrs
         attrs[:id] = new_id
-        attrs[:receiver] = 1 if attrs[:gender].nil?
+        attrs[:receiver_id] = 1 if attrs[:receiver_id].nil?
         attrs[:tracking_number] = nil if attrs[:tracking_number].nil?
         attrs[:received] = false if attrs[:received].nil?
         attrs[:material] = 'synthetic' if attrs[:material].nil?
@@ -61,8 +46,8 @@ module Wigglez
         attrs[:size] = 'average' if attrs[:size].nil?
         Wig.new(
           attrs[:id],
-          attrs[:donor],
-          attrs[:receiver],
+          attrs[:donor_id],
+          attrs[:receiver_id],
           attrs[:tracking_number],
           attrs[:received],
           attrs[:material],
@@ -82,8 +67,8 @@ module Wigglez
         return nil if wig_attrs.nil?
         Wig.new(
           wig_attrs[:id],
-          wig_attrs[:donor],
-          wig_attrs[:receiver],
+          wig_attrs[:donor_id],
+          wig_attrs[:receiver_id],
           wig_attrs[:tracking_number],
           wig_attrs[:received],
           wig_attrs[:material],
@@ -102,8 +87,8 @@ module Wigglez
         @wigs.values.map do |attrs|
           Wig.new(
             attrs[:id],
-            attrs[:donor],
-            attrs[:receiver],
+            attrs[:donor_id],
+            attrs[:receiver_id],
             attrs[:tracking_number],
             attrs[:received],
             attrs[:material],

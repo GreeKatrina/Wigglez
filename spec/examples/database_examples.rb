@@ -10,7 +10,7 @@ shared_examples 'a database' do
     password_confirmation: 'password1'
   )}
   let(:wig){ db.create_wig(
-    donor: user.id,
+    donor_id: user.id,
     material: 'synthetic',
     color: 'brown',
     length: 'long',
@@ -21,7 +21,7 @@ shared_examples 'a database' do
     size: 'average'
   )}
   let(:wig2){ db.create_wig(
-    donor: user.id,
+    donor_id: user.id,
     material: 'synthetic',
     color: 'blonde',
     length: 'short',
@@ -44,25 +44,13 @@ shared_examples 'a database' do
     expect(retrieved_user.email).to eq user.email
   end
 
-  xit 'retreives a user by email' do
+  it 'retreives a user by email' do
     retrieved_user = db.get_user_by_email(user.email)
     expect(retrieved_user.name).to eq 'Katrina'
     expect(retrieved_user.email).to eq 'theo@gmail.com'
   end
 
-  xit 'creates a session and returns its id' do
-    session_id = db.create_session(:user_id => user.id)
-    expect(session_id).to_not be_a Hash
-  end
-
-  xit 'retreives a user by session id' do
-    session_id = db.create_session(:user_id => user.id)
-    retrieved_user = db.get_user_by_session_id(session_id)
-    expect(retrieved_user.name).to eq 'Katrina'
-    expect(retrieved_user.email).to eq 'theo@gmail.com'
-  end
-
-  xit "allows a donor to create a wig" do
+  it "allows a donor to create a wig" do
     expect(wig).to_not be_nil
     expect(wig.donor).to eq user.id
     expect(wig.material).to eq 'synthetic'
@@ -75,7 +63,7 @@ shared_examples 'a database' do
     expect(wig.size).to eq 'average'
   end
 
-  xit 'retreives a wig' do
+  it 'retreives a wig' do
     retrieved_wig = db.get_wig(wig.id)
     expect(retrieved_wig.color).to eq 'brown'
     expect(retrieved_wig.length).to eq 'long'
@@ -87,7 +75,7 @@ shared_examples 'a database' do
     expect(retrieved_wig2.retail_estimate).to eq 300
   end
 
-  xit 'grabs all the wigs' do
+  it 'grabs all the wigs' do
     wig
     wig2
     wigs = db.all_wigs
