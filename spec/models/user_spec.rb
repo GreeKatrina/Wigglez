@@ -8,6 +8,15 @@ describe "User" do
       u = Wigglez::Database::SQL::User.new(name: "Katrina",email: 'theo@gmail.com')
       u.save
       expect(u).to_not be_valid
+
+      u.password = "password"
+      u.password_confirmation = ""
+      u.save
+      expect(u).to_not be_valid
+
+      u.password_confirmation = "password"
+      u.save
+      expect(u).to be_valid
     end
   end
 end
