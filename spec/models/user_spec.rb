@@ -18,5 +18,14 @@ describe "User" do
       u.save
       expect(u).to be_valid
     end
+
+    it 'needs password and confirmation to match' do
+      u = Wigglez::Database::SQL::User.create(
+          name: "Katrina",
+          password: 'Hercules',
+          password_confirmation: 'Hercules1'
+        )
+      expect(u).to_not be_valid
+    end
   end
 end
