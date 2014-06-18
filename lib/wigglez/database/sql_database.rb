@@ -12,6 +12,7 @@ module Wigglez
       end
 
       class User < ActiveRecord::Base
+        has_many :wigs
 
         before_save { self.email = email.downcase }
 
@@ -30,27 +31,28 @@ module Wigglez
       end
 
       def create_user(attrs)
-
+        new_user = User.create(attrs)
+        User.build(new_user[:id], new_user[:name], new_user[:password], new_user[:password_confirmation])
       end
 
       def create_wig(attrs)
-        # new_wig = Wig.create(attrs)
-        # Wigglez::Database::SQL::Wig.new(
-        #     new_wig.id,
-        #     new_wig.donor,
-        #     new_wig.receiver,
-        #     new_wig.tracking_number,
-        #     new_wig.received,
-        #     new_wig.material,
-        #     new_wig.color,
-        #     new_wig.length,
-        #     new_wig.gender,
-        #     new_wig.retail_estimate,
-        #     new_wig.date_picked,
-        #     new_wig.condition,
-        #     new_wig.construction,
-        #     new_wig.size
-        #   )
+        new_wig = Wig.create(attrs)
+        Wig.build(
+            new_wig.id,
+            new_wig.donor,
+            new_wig.receiver,
+            new_wig.tracking_number,
+            new_wig.received,
+            new_wig.material,
+            new_wig.color,
+            new_wig.length,
+            new_wig.gender,
+            new_wig.retail_estimate,
+            new_wig.date_picked,
+            new_wig.condition,
+            new_wig.construction,
+            new_wig.size
+          )
       end
 
       def get_wig(id)

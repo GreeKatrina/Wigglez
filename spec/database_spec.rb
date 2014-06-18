@@ -26,9 +26,9 @@ describe 'Wigglez database singleton' do
   end
 end
 
-# describe Wigglez::Database::SQL do
-#   it_behaves_like 'a database'
-# end
+describe Wigglez::Database::SQL do
+  it_behaves_like 'a database'
+end
 
 describe Wigglez::Database::InMemory do
   it_behaves_like 'a database'
