@@ -3,10 +3,25 @@ require 'rails_helper'
 require 'pry-byebug'
 
 describe "User" do
+  before(:each) do
+    @User = Wigglez::Database::SQL::User
+  end
+
+  describe 'name' do
+    it 'needs a name to save' do
+      u = @User.new(name: "",email: 'theo@gmail.com', password: "password", password_confirmation: "password")
+      u.save
+      expect(u).to_not be_valid
+
+      u.name = "Katrina"
+      u.save
+      expect(u).to be_valid
+    end
+  end
 
   describe 'passwords' do
     it 'needs a password and confirmation to save' do
-      u = Wigglez::Database::SQL::User.new(name: "Katrina",email: 'theo@gmail.com')
+      u = @User.new(name: "Katrina",email: 'theo@gmail.com')
       u.save
       expect(u).to_not be_valid
 
@@ -20,7 +35,7 @@ describe "User" do
       expect(u).to be_valid
     end
     it 'needs password and confirmation to match' do
-      u = Wigglez::Database::SQL::User.create(
+      u = @User.create(
           name: "Katrina",
           password: 'Hercules',
           password_confirmation: 'Hercules1'
@@ -30,7 +45,7 @@ describe "User" do
   end
 
   describe "authentitcation" do
-    let(:user) { Wigglez::Database::SQL::User.create(
+    let(:user) { @User.create(
         name: 'Katrina',
         password: 'Hercules',
         password_confirmation: 'Hercules'
