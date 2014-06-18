@@ -37,7 +37,7 @@ shared_examples 'a database' do
     expect(user.name).to eq 'Katrina'
   end
 
-  xit 'gets a user by id' do
+  it 'gets a user by id' do
     retrieved_user = db.get_user(user.id)
     expect(retrieved_user.id).to eq user.id
     expect(retrieved_user.name).to eq user.name
