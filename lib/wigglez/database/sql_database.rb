@@ -62,6 +62,7 @@ module Wigglez
 
       def CLEAR_ALL
         Wig.delete_all
+        User.delete_all
       end
     end
   end

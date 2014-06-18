@@ -4,6 +4,7 @@ require 'pry-byebug'
 
 describe "User" do
   before(:each) do
+    @db = Wigglez::Database::SQL.new
     @User = Wigglez::Database::SQL::User
   end
 
@@ -41,6 +42,12 @@ describe "User" do
       u.email = 'theo@gmail.com'
       u.save
       expect(u).to be_valid
+    end
+    it 'should downcase the email after save' do
+      u = @User.new(name: "Katrina", email: 'ThEo@GmAiL.cOm', password: 'password', password_confirmation: 'password')
+      u.save
+      expect(u.email).to eq 'theo@gmail.com'
+      expect(u.email).to_not eq 'ThEo@GmAiL.cOm'
     end
   end
 
@@ -93,6 +100,10 @@ describe "User" do
     it 'does not authenticate with an incorrect password' do
       expect(user.authenticate('Hercules1')).to_not be
     end
+  end
+
+  after(:each)do
+    @db.CLEAR_ALL
   end
 
 end
