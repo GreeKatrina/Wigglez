@@ -18,14 +18,22 @@ module Wigglez
       end
 
       def get_user(id)
-        attrs = @users[id]
-        User.new(attrs[:id], attrs[:name], attrs[:email], attrs[:password], attrs[:password_confirmation])
+        if @users[id]
+          attrs = @users[id]
+          User.new(attrs[:id], attrs[:name], attrs[:email], attrs[:password], attrs[:password_confirmation])
+        else
+          nil
+        end
       end
 
       def get_user_by_email(email)
         user_attrs = @users.values.find { |attrs| attrs[:email] == email }
         return nil if user_attrs.nil?
         User.new(user_attrs[:id], user_attrs[:name], user_attrs[:email], user_attrs[:password], user_attrs[:password_confirmation])
+      end
+
+      def delete_user(id)
+        @users.delete_if {|key, hash| hash[:id] == id }
       end
 
       def create_wig(attrs)
@@ -63,24 +71,27 @@ module Wigglez
       end
 
       def get_wig(id)
-        wig_attrs = @wigs[id]
-        return nil if wig_attrs.nil?
-        Wig.new(
-          wig_attrs[:id],
-          wig_attrs[:donor_id],
-          wig_attrs[:receiver_id],
-          wig_attrs[:tracking_number],
-          wig_attrs[:received],
-          wig_attrs[:material],
-          wig_attrs[:color],
-          wig_attrs[:length],
-          wig_attrs[:gender],
-          wig_attrs[:retail_estimate],
-          wig_attrs[:date_picked],
-          wig_attrs[:condition],
-          wig_attrs[:construction],
-          wig_attrs[:size]
-        )
+        if @wigs[id]
+          wig_attrs = @wigs[id]
+          Wig.new(
+            wig_attrs[:id],
+            wig_attrs[:donor_id],
+            wig_attrs[:receiver_id],
+            wig_attrs[:tracking_number],
+            wig_attrs[:received],
+            wig_attrs[:material],
+            wig_attrs[:color],
+            wig_attrs[:length],
+            wig_attrs[:gender],
+            wig_attrs[:retail_estimate],
+            wig_attrs[:date_picked],
+            wig_attrs[:condition],
+            wig_attrs[:construction],
+            wig_attrs[:size]
+          )
+        else
+          nil
+        end
       end
 
       def all_wigs
@@ -102,6 +113,10 @@ module Wigglez
             attrs[:size]
           )
         end
+      end
+
+      def delete_wig(id)
+        @wigs.delete_if {|key, hash| hash[:id] == id }
       end
 
       def CLEAR_ALL

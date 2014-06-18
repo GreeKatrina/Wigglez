@@ -39,13 +39,19 @@ module Wigglez
       end
 
       def get_user(id)
-        new_user = User.find(id)
-        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+        if User.exists?(id)
+          new_user = User.find(id)
+          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+        end
       end
 
       def get_user_by_email(email)
         new_user = User.find_by email: email
         Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+      end
+
+      def delete_user(id)
+        User.find(id).destroy
       end
 
       def create_wig(attrs)
@@ -69,23 +75,25 @@ module Wigglez
       end
 
       def get_wig(id)
-        new_wig = Wig.find(id)
-        Wigglez::Wig.new(
-          new_wig.id,
-          new_wig.donor_id,
-          new_wig.receiver_id,
-          new_wig.tracking_number,
-          new_wig.received,
-          new_wig.material,
-          new_wig.color,
-          new_wig.length,
-          new_wig.gender,
-          new_wig.retail_estimate,
-          new_wig.date_picked,
-          new_wig.condition,
-          new_wig.construction,
-          new_wig.size
-        )
+        if Wig.exists?(id)
+          new_wig = Wig.find(id)
+          Wigglez::Wig.new(
+            new_wig.id,
+            new_wig.donor_id,
+            new_wig.receiver_id,
+            new_wig.tracking_number,
+            new_wig.received,
+            new_wig.material,
+            new_wig.color,
+            new_wig.length,
+            new_wig.gender,
+            new_wig.retail_estimate,
+            new_wig.date_picked,
+            new_wig.condition,
+            new_wig.construction,
+            new_wig.size
+          )
+        end
       end
 
       def all_wigs
@@ -108,6 +116,10 @@ module Wigglez
               w.size
             )
         end
+      end
+
+      def delete_wig(id)
+        Wig.find(id).destroy
       end
 
       def CLEAR_ALL

@@ -50,6 +50,15 @@ shared_examples 'a database' do
     expect(retrieved_user.email).to eq 'theo@gmail.com'
   end
 
+  it 'deletes a user' do
+    user
+    retrieved_user = db.get_user(user.id)
+    expect(retrieved_user.id).to eq user.id
+    db.delete_user(user.id)
+    retrieved_user2 = db.get_user(user.id)
+    expect(retrieved_user2).to eq nil
+  end
+
   it "allows a donor to create a wig" do
     expect(wig).to_not be_nil
     expect(wig.donor).to eq user.id
@@ -83,6 +92,15 @@ shared_examples 'a database' do
     expect(wigs.map &:donor).to include user.id
     expect(wigs.map &:color).to include 'blonde'
     expect(wigs.map &:length).to include 'long'
+  end
+
+  it 'deletes a wig' do
+    wig
+    wig2
+    expect(db.all_wigs.count).to eq 2
+    db.delete_wig(wig.id)
+    expect(db.get_wig(wig.id)).to eq nil
+    expect(db.get_wig(wig2.id)).to_not be_nil
   end
 
   after(:each) do
