@@ -9,29 +9,35 @@ describe Wigglez::SignUp do
   end
 
   describe 'name' do
-    xit 'cannot be blank' do
+    it 'cannot be blank' do
       @User[:name] = ""
       result = @SignUp.run(@User)
       expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :name => ["can't be blank"]
 
       @User[:name] = "Katrina"
       result = @SignUp.run(@User)
       expect(result.success?).to eq true
     end
-    xit 'cannot have a name longer than 50 characters' do
-      u = @User.new(name: "KatrinaKatrinaKatrinaKatrinaKatrinaKatrinaKatrinaKatrina", email: 'theo@gmail.com', password: 'password', password_confirmation: 'password')
-      u.save
-      expect(u).to_not be_valid
+    it 'cannot have a name longer than 50 characters' do
+      u = @User[:name] = "KatrinaKatrinaKatrinaKatrinaKatrinaKatrinaKatrinaKatrina"
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :name => ["is too long (maximum is 50 characters)"]
     end
   end
 
   describe 'email' do
-    xit 'needs a valid email to save' do
-      u = @User.new(name: "Katrina", email: "", password: "password", password_confirmation: "password")
-      u.save
-      expect(u).to_not be_valid
+    it 'needs a valid email to save' do
+      @User[:email] = ""
+      result = @SignUp.run(@User)
+      expect(result.succes?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :email => ["can't be blank"]
 
-      u.email = 'theo'
+      @User[:email] = 'theo'
       u.save
       expect(u).to_not be_valid
 

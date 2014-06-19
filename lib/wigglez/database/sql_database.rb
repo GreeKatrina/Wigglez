@@ -12,16 +12,7 @@ module Wigglez
       end
 
       class User < ActiveRecord::Base
-        # has_many :wigs
-
-        # before_save { self.email = email.downcase }
-
-        # validates :name,  presence: true, length: { maximum: 50 }
-        # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-        # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-        # validates :password, length: { :in => 6..20 }
-
-        # has_secure_password
+        has_many :wigs
       end
 
       class Wig < ActiveRecord::Base

@@ -1,44 +1,17 @@
 require 'spec_helper'
-require 'rails_helper'
 
 shared_examples 'a database' do
-  before :each do
-    @db = subject
-    @user = @db.create_user(
-      name: "Steve",
-      email: 'steve@gmail.com'
-    )
-    @wig = @db.create_wig(
-      donor_id: @user.id,
-      material: 'synthetic',
-      color: 'brown',
-      length: 'long',
-      gender: 'female',
-      retail_estimate: 400,
-      condition: 'new',
-      construction: 'custom',
-      size: 'average'
-    )
-    @wig2 = @db.create_wig(
-      donor_id: @user.id,
-      material: 'synthetic',
-      color: 'blonde',
-      length: 'short',
-      gender: 'female',
-      retail_estimate: 300,
-      condition: 'new',
-      construction: 'custom',
-      size: 'average'
-    )
-  end
 
   before :each do
-    db.CLEAR_ALL
+    @db = described_class.new
+    @user = FactoryGirl.create(:user)
+    @wig = FactoryGirl.create(:wig, donor_id: @user.id)
+    @wig2 = FactoryGirl.create(:wig2, donor_id: @user.id)
   end
 
-  it 'creates a user ' do
+  it 'creates a user' do
     expect(@user.id).to_not be_nil
-    expect(@user.name).to eq 'Steve'
+    expect(@user.name).to eq 'Katrina'
   end
 
   it 'gets a user by id' do
@@ -50,12 +23,11 @@ shared_examples 'a database' do
 
   it 'retreives a user by email' do
     retrieved_user = @db.get_user_by_email(@user.email)
-    expect(retrieved_user.name).to eq 'Steve'
-    expect(retrieved_user.email).to eq 'steve@gmail.com'
+    expect(retrieved_user.name).to eq 'Katrina'
+    expect(retrieved_user.email).to eq @user.email
   end
 
   it 'deletes a user' do
-    user
     retrieved_user = @db.get_user(@user.id)
     expect(retrieved_user.id).to eq @user.id
     @db.delete_user(@user.id)
@@ -65,7 +37,7 @@ shared_examples 'a database' do
 
   it "allows a donor to create a wig" do
     expect(@wig).to_not be_nil
-    expect(@wig.donor).to eq @user.id
+    expect(@wig.donor_id).to eq @user.id
     expect(@wig.material).to eq 'synthetic'
     expect(@wig.color).to eq 'brown'
     expect(@wig.length).to eq 'long'
@@ -103,9 +75,10 @@ shared_examples 'a database' do
     expect(@db.get_wig(@wig2.id)).to_not be_nil
   end
 
-  # after(:each) do
-  #   @db.CLEAR_ALL
-  # end
+  after :each do
+    @db.CLEAR_ALL
+  end
+
 end
 
 describe Wigglez::Database::SQL do

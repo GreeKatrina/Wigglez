@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_filter :save_login_state, :only => [:new, :create]
 
   def new
-    @user = User.new
+    @user = Wigglez::User.new
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = Wigglez::User.new(params[:user])
     if @user.save
       flash[:notice] = "You signed up successfully"
       flash[:color] = "valid"
