@@ -64,38 +64,46 @@ describe Wigglez::SignUp do
   end
 
   describe 'passwords' do
-    xit 'needs a password and confirmation to save' do
-      u = @User.new(name: "Katrina", email: 'theo@gmail.com')
-      u.save
-      expect(u).to_not be_valid
+    it 'needs a password and confirmation to save' do
+      @User[:password] = ""
+      @User[:password_confirmation] = ""
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :password => ["can't be blank", "is too short (minimum is 6 characters)"]
 
-      u.password = "password"
-      u.password_confirmation = ""
-      u.save
-      expect(u).to_not be_valid
+      @User[:password] = "password"
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :password_confirmation => ["doesn't match Password"]
 
-      u.password_confirmation = "password"
-      u.save
-      expect(u).to be_valid
+      @User[:password_confirmation] = "password"
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq true
     end
-    xit 'needs password and confirmation to match' do
-      u = @User.create(
-          name: "Katrina",
-          email: 'theo@gmail.com',
-          password: 'Hercules',
-          password_confirmation: 'Hercules1'
-        )
-      expect(u).to_not be_valid
+    it 'needs password and confirmation to match' do
+      @User[:password_confirmation] = "not_password"
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :password_confirmation => ["doesn't match Password"]
     end
-    xit 'needs a password of atleast 6 characters to save' do
-      u = @User.create(name: "Katrina", email: 'theo@gmail.com', password: 'test', password_confirmation: 'test')
-      u.save
-      expect(u).to_not be_valid
+    it 'needs a password of atleast 6 characters to save' do
+      @User[:password] = 'test'
+      @User[:password_confirmation] = 'test'
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :password => ["is too short (minimum is 6 characters)"]
     end
-    xit 'cannot have a password longer than 20 characters' do
-      u = @User.create(name: "Katrina", email: 'theo@gmail.com', password: 'passwordpasswordpasswordpasswordpassword', password_confirmation: 'passwordpasswordpasswordpasswordpassword')
-      u.save
-      expect(u).to_not be_valid
+    it 'cannot have a password longer than 20 characters' do
+      @User[:password] = 'passwordpasswordpasswordpasswordpassword'
+      @User[:password_confirmation] = 'passwordpasswordpasswordpasswordpassword'
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :password => ["is too long (maximum is 20 characters)"]
     end
   end
 
