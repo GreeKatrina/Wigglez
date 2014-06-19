@@ -26,7 +26,15 @@ describe Wigglez::SignIn do
 
   describe 'password' do
     it 'must be correct' do
+      @User[:password] = 'not_password'
+      result = @SignIn.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :password => ["Incorrect password"]
 
+      @User[:password] = 'password'
+      result = @SignIn.run(@User)
+      expect(result.success?).to eq true
     end
   end
 
