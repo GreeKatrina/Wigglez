@@ -1,13 +1,12 @@
 module Wigglez
   class User
-    attr_reader :id, :name, :email, :password, :password_confirmation
+    attr_reader :id, :name, :email, :password_digest
 
-    def initialize(id, name, email, password, password_confirmation)
+    def initialize(id, name, email, password_digest)
       @id = id
       @name = name
       @email = email
-      @password = password
-      @password_confirmation = password_confirmation
+      @password_digest = password_digest
     end
   end
 end

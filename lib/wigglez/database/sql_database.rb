@@ -26,27 +26,27 @@ module Wigglez
 
       def create_user(attrs)
         new_user = User.create(attrs)
-        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
       end
 
       def get_user(id)
         if User.exists?(id)
           new_user = User.find(id)
-          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
         end
       end
 
       def get_user_by_email(email)
         if User.exists?(email: email)
           new_user = User.find_by email: email
-          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
         end
       end
 
       def all_users
         users = User.all
         users.map do |u|
-          u = Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+          u = Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
         end
       end
 
