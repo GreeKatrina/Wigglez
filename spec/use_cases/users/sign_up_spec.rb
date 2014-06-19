@@ -107,21 +107,6 @@ describe Wigglez::SignUp do
     end
   end
 
-  describe "authentitcation" do
-    let(:user) { @User.create(
-        name: 'Katrina',
-        email: 'theo@gmail.com',
-        password: 'Hercules',
-        password_confirmation: 'Hercules'
-      )}
-    xit 'authenticates with a correct password' do
-      expect(user.authenticate('Hercules')).to be
-    end
-    xit 'does not authenticate with an incorrect password' do
-      expect(user.authenticate('Hercules1')).to_not be
-    end
-  end
-
   after :each do
     @db.CLEAR_ALL
   end
