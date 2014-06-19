@@ -4,6 +4,7 @@ require 'pry-byebug'
 
 describe Wigglez::SignUp do
   before(:each) do
+    @db = Wigglez.db
     @SignUp = Wigglez::SignUp.new
     @User = { name: 'Katrina', email: 'theo@gmail.com', password: 'password', password_confirmation: 'password' }
   end
@@ -30,30 +31,35 @@ describe Wigglez::SignUp do
   end
 
   describe 'email' do
-    it 'needs a valid email to save' do
+    it 'needs a valid email' do
       @User[:email] = ""
       result = @SignUp.run(@User)
-      expect(result.succes?).to eq false
+      expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
-      expect(result.reasons).to eq :email => ["can't be blank"]
+      expect(result.reasons).to eq :email => ["can't be blank", "is invalid"]
 
       @User[:email] = 'theo'
-      u.save
-      expect(u).to_not be_valid
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :email => ["is invalid"]
 
-      u.email = 'theo@gmail'
-      u.save
-      expect(u).to_not be_valid
+      @User[:email] = 'theo@gmail'
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :email => ["is invalid"]
 
-      u.email = 'theo@gmail.com'
-      u.save
-      expect(u).to be_valid
+      @User[:email] = 'theo@gmail.com'
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq true
     end
-    xit 'should downcase the email after save' do
-      u = @User.new(name: "Katrina", email: 'ThEo@GmAiL.cOm', password: 'password', password_confirmation: 'password')
-      u.save
-      expect(u.email).to eq 'theo@gmail.com'
-      expect(u.email).to_not eq 'ThEo@GmAiL.cOm'
+    it 'should downcase the email' do
+      @User[:email] =  'ThEo@GmAiL.cOm'
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq true
+      expect(result.user.email).to eq 'theo@gmail.com'
+      expect(result.user.email).to_not eq 'ThEo@GmAiL.cOm'
     end
   end
 
@@ -106,6 +112,10 @@ describe Wigglez::SignUp do
     xit 'does not authenticate with an incorrect password' do
       expect(user.authenticate('Hercules1')).to_not be
     end
+  end
+
+  after :each do
+    @db.CLEAR_ALL
   end
 
 end
