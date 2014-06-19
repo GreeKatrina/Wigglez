@@ -51,11 +51,11 @@ test:
   host: localhost
   port: 5432
 
-production:
-  adapter: postgresql
-  encoding: utf8
-  database: wigglez_production
-  pool: 5
-  host: localhost
+# production:
+#   adapter: postgresql
+#   encoding: utf8
+#   database: wigglez_production
+#   pool: 5
+#   host: localhost
 
 

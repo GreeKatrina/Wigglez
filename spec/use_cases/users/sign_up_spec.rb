@@ -2,21 +2,21 @@ require 'spec_helper'
 require 'rails_helper'
 require 'pry-byebug'
 
-describe "User" do
+describe Wigglez::SignUp do
   before(:each) do
-    @db = Wigglez::Database::SQL.new
-    @User = Wigglez::Database::SQL::User
+    @SignUp = Wigglez::SignUp.new
+    @User = { name: 'Katrina', email: 'theo@gmail.com', password: 'password', password_confirmation: 'password' }
   end
 
   describe 'name' do
-    xit 'needs a name to save' do
-      u = @User.new(name: "", email: 'theo@gmail.com', password: "password", password_confirmation: "password")
-      u.save
-      expect(u).to_not be_valid
+    xit 'cannot be blank' do
+      @User[:name] = ""
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
 
-      u.name = "Katrina"
-      u.save
-      expect(u).to be_valid
+      @User[:name] = "Katrina"
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq true
     end
     xit 'cannot have a name longer than 50 characters' do
       u = @User.new(name: "KatrinaKatrinaKatrinaKatrinaKatrinaKatrinaKatrinaKatrina", email: 'theo@gmail.com', password: 'password', password_confirmation: 'password')
@@ -100,10 +100,6 @@ describe "User" do
     xit 'does not authenticate with an incorrect password' do
       expect(user.authenticate('Hercules1')).to_not be
     end
-  end
-
-  after(:each)do
-    @db.CLEAR_ALL
   end
 
 end

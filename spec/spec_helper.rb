@@ -16,7 +16,7 @@ RSpec.configure do |config|
     Wigglez.instance_variable_set(:@__db_instance, nil)
   end
 
-  config.treat_symbols_as_metadata_keys_with_true_values = true
+  # config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 

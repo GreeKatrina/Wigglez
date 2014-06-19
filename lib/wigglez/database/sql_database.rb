@@ -12,16 +12,16 @@ module Wigglez
       end
 
       class User < ActiveRecord::Base
-        has_many :wigs
+        # has_many :wigs
 
-        before_save { self.email = email.downcase }
+        # before_save { self.email = email.downcase }
 
-        validates :name,  presence: true, length: { maximum: 50 }
-        VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-        validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-        validates :password, length: { :in => 6..20 }
+        # validates :name,  presence: true, length: { maximum: 50 }
+        # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+        # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+        # validates :password, length: { :in => 6..20 }
 
-        has_secure_password
+        # has_secure_password
       end
 
       class Wig < ActiveRecord::Base
@@ -46,8 +46,17 @@ module Wigglez
       end
 
       def get_user_by_email(email)
-        new_user = User.find_by email: email
-        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+        if User.exists?(email: email)
+          new_user = User.find_by email: email
+          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+        end
+      end
+
+      def all_users
+        users = User.all
+        users.map do |u|
+          u = Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password], new_user[:password_confirmation])
+        end
       end
 
       def delete_user(id)

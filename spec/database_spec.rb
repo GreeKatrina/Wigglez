@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe 'Wigglez database singleton' do
   it "always returns the same object" do
@@ -22,14 +23,9 @@ describe 'Wigglez database singleton' do
   end
 
   it "resets for every test" do
+# binding.pry
     expect(Wigglez.db.all_wigs.count).to eq 0
   end
 end
 
-describe Wigglez::Database::SQL do
-  it_behaves_like 'a database'
-end
 
-describe Wigglez::Database::InMemory do
-  it_behaves_like 'a database'
-end
