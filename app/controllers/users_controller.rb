@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
-  # before_filter :save_login_state, :only => [:new, :create]
+  before_action :current_user
 
   def show
     # Render user profile page
+    render 'profile'
   end
 
   def index
     # Render user home page
+    render 'home'
   end
 
 end

@@ -1,29 +1,43 @@
 <% @page_title = "Sign Up" %>
 <div class="Sign_Form">
-  <h1>Sign Up</h1>
-  <%= form_for(:user, :url => {:controller => 'sessions', :action => 'sign_up'}) do |f| %>
-<!--     <% if @user.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-          <ul>
-            <% for message in @user.errors.full_messages %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-      </div>
-      <% end %> -->
-    <% end %>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="actions"><%= f.submit %></div>
+
+    <h1>Sign Up</h1>
+    <%= form_tag(sign_up_attempt_path, method: 'post') do %>
+
+          <% if flash[:error] && flash[:error][:name] %>
+              <p class='flash'>name <%=h flash[:error][:name][0] %></p>
+          <% end %>
+          <div class="field">
+              <%= label_tag :name %>
+              <%= text_field_tag :name %>
+          </div>
+
+          <% if flash[:error] && flash[:error][:email] %>
+              <p class='flash'>email <%=h flash[:error][:email][0] %></p>
+          <% end %>
+          <div class="field">
+              <%= label_tag :email %>
+              <%= text_field_tag :email %>
+          </div>
+
+          <% if flash[:error] && flash[:error][:password] %>
+              <p class='flash'>password <%=h flash[:error][:password][0] %></p>
+          <% end %>
+          <div class="field">
+              <%= label_tag :password %>
+              <%= password_field_tag :password %>
+          </div>
+
+          <% if flash[:error] && flash[:error][:password_confirmation] %>
+              <p class='flash'>password confirmation <%=h flash[:error][:password_confirmation][0] %></p>
+          <% end %>
+          <div class="field">
+              <%= label_tag :password_confirmation, 'Confirm Password:' %>
+              <%= password_field_tag :password_confirmation %>
+          </div>
+
+          <div class="actions"><%= submit_tag('submit') %></div>
+
+      <% end %>
+
 </div>

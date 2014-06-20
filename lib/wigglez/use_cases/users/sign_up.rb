@@ -1,3 +1,4 @@
+require 'wigglez'
 require 'pry-byebug'
 require 'bcrypt'
 

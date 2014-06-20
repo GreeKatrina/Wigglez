@@ -16,7 +16,7 @@ describe Wigglez::SignIn do
       result = @SignIn.run(@User)
       expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
-      expect(result.reasons).to eq :email => ["No user associated with that email"]
+      expect(result.reasons).to eq :no_user => ["No user associated with that email"]
 
       @User[:email] = 'theo@gmail.com'
       result = @SignIn.run(@User)
@@ -30,7 +30,7 @@ describe Wigglez::SignIn do
       result = @SignIn.run(@User)
       expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
-      expect(result.reasons).to eq :password => ["Incorrect password"]
+      expect(result.reasons).to eq :password => ["is incorrect"]
 
       @User[:password] = 'password'
       result = @SignIn.run(@User)

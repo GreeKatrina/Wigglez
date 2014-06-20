@@ -1,15 +1,26 @@
 <% @page_title = "Sign In" -%>
 <div class= "Sign_Form">
-  <h1>Log in</h1>
-  <%= form_tag(:action => 'sign_in') do %>
-    <div class="field">
-      <%= label_tag :email %>
-      <%= text_field_tag :email, params[:email] %>
-    </div>
-    <div class="field">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </div>
-    <div class="actions"><%= submit_tag "Log in" %></div>
-  <% end %>
+    <h1>Sign in</h1>
+    <%= form_tag(sign_in_attempt_path, method: 'post') do %>
+        <% if flash[:error] && !flash[:error][:password] && !flash[:error][:email] %>
+          <% flash[:error].each do |k,v| %>
+              <p class='flash'>Error: <%=h flash[:error][k][0] %></p>
+          <% end %>
+        <% end %>
+        <% if flash[:error] && flash[:error][:email] %>
+            <p class='flash'>email <%=h flash[:error][:email][0] %></p>
+        <% end %>
+            <div class="field">
+                <%= label_tag :email %>
+                <%= text_field_tag :email, params[:email] %>
+            </div>
+        <% if flash[:error] && flash[:error][:password] %>
+            <p class='flash'>password <%=h flash[:error][:password][0] %></p>
+        <% end %>
+            <div class="field">
+                <%= label_tag :password %>
+                <%= password_field_tag :password %>
+            </div>
+        <div class="actions"><%= submit_tag "Log in" %></div>
+    <% end %>
 </div>

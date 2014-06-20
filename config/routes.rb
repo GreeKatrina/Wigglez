@@ -1,10 +1,10 @@
 Wigglez::Application.routes.draw do
   root :to => "sessions#new"
 
-  get 'sign_in', :to => 'sessions#sign_in_form', :as => :sign_in_form
-  post 'sign_in', :to => 'sessions#sign_in', :as => :sign_in
-  get 'sign_up', :to => 'sessions#sign_up_form', :as => :sign_up_form
-  post 'sign_up', :to => 'sessions#sign_in', :as => :sign_up
+  get 'sign_in', :to => 'sessions#sign_in', :as => :sign_in
+  post 'sign_in', :to => 'sessions#sign_in_attempt', :as => :sign_in_attempt
+  get 'sign_up', :to => 'sessions#sign_up', :as => :sign_up
+  post 'sign_up', :to => 'sessions#sign_up_attempt', :as => :sign_up_attempt
   get 'log_out', :to => 'sessions#destroy', :as => :log_out
 
   get 'home', :to => 'users#index', :as => :home

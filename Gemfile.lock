@@ -33,6 +33,9 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt-ruby (3.0.1)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.2.2)
     byebug (2.7.0)
       columnize (~> 0.3)
@@ -172,6 +175,7 @@ DEPENDENCIES
   activemodel (~> 4.1.0)
   activerecord (~> 4.1.0)
   bcrypt-ruby (~> 3.0.0)
+  better_errors
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails

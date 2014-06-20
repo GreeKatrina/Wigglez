@@ -39,3 +39,7 @@ group :development, :test do
   gem 'rake'
   gem 'rspec-rails', '~> 3.0.0'
 end
+
+group :development do
+  gem "better_errors"
+end
