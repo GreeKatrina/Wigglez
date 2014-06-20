@@ -1,29 +1,20 @@
 Wigglez::Application.routes.draw do
-  root :to => "sessions#login"
+  root :to => "sessions#new"
 
-  get "signup", :to => "users#new"
-  post "login", :to => "sessions#login_attempt"
-  get "logout", :to => "sessions#logout"
-  get "home", :to => "sessions#home"
-  get "profile", :to => "sessions#profile"
-  get "setting", :to => "sessions#setting"
+  get 'sign_in', :to => 'sessions#sign_in_form', :as => :sign_in_form
+  post 'sign_in', :to => 'sessions#sign_in', :as => :sign_in
+  get 'sign_up', :to => 'sessions#sign_up_form', :as => :sign_up_form
+  post 'sign_up', :to => 'sessions#sign_in', :as => :sign_up
+  get 'log_out', :to => 'sessions#destroy', :as => :log_out
 
-  # GET /sign_in
-  # the two below are the same
+  get 'home', :to => 'users#index', :as => :home
+  get 'profile', :to => 'users#show', :as => :profile
 
-  # get 'sign-in' => 'users#new', :as => :sign_in
-  # get 'sign-in', :to => 'users#new', as: => :sign_in
+  get 'wigs', :to => 'wigs#index', :as => :wigs
+  get 'wigs/:id', :to => 'wigs#show', :as => :show_wig
 
-  # # POST /events/:event_id/comments/:comment_id/votes
-
-  # resources :events do
-  #   resources :comments, :only => [:create, :show] do
-  #     resources :votes, :only => [:create]
-  #   end
-  # end
-
-  # # PUT /votes/345
-
-  # resources :votes, :only => [:update, :delete]
+  resources :users, :only => [:update, :destroy] do
+    resources :wigs, :except => [:index, :show]
+  end
 
 end

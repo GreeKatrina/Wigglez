@@ -1,8 +1,8 @@
-<% @page_title = "Signup" %>
+<% @page_title = "Sign Up" %>
 <div class="Sign_Form">
   <h1>Sign Up</h1>
-  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
-    <% if @user.errors.any? %>
+  <%= form_for(:user, :url => {:controller => 'sessions', :action => 'sign_up'}) do |f| %>
+<!--     <% if @user.errors.any? %>
       <div class="error_messages">
         <h2>Form is invalid</h2>
           <ul>
@@ -11,6 +11,7 @@
             <% end %>
           </ul>
       </div>
+      <% end %> -->
     <% end %>
     <div class="field">
       <%= f.label :email %>

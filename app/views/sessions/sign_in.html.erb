@@ -1,7 +1,7 @@
-<% @page_title = "Login" -%>
+<% @page_title = "Sign In" -%>
 <div class= "Sign_Form">
   <h1>Log in</h1>
-  <%= form_tag(:action => 'login_attempt') do %>
+  <%= form_tag(:action => 'sign_in') do %>
     <div class="field">
       <%= label_tag :email %>
       <%= text_field_tag :email, params[:email] %>
