@@ -5,14 +5,14 @@ module Wigglez
 
     def run(params)
       # params that should always be set to nil when wig is created
-      nil_params = ['tracking_number', 'receiver_id', 'date_picked', 'received']
-      for param_name in nil_params
-        params["#{param_name}"] = nil
+      not_required_params = [:tracking_number, :receiver_id, :date_picked, :received]
+      for param_name in not_required_params
+        params[param_name] = nil
       end
       # put both of these in an array incase I want to add more to either later
-      optional_params = ['retail_estimate', 'construction', 'size']
+      optional_params = [:retail_estimate, :construction, :size]
       for param_name in optional_params
-        params["#{param_name}"] = nil if !params["#{param_name}"]
+        params[param_name] = nil if !params[param_name]
       end
 
       result = validate_params(params) do
