@@ -7,8 +7,6 @@ module Wigglez
       params[:email] = params[:email].downcase
 
       result = validate_params(params) do
-        allow :email, :password
-
         validates_presence_of :email
         validates_presence_of :password
       end

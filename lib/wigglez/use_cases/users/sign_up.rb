@@ -9,8 +9,6 @@ module Wigglez
       params[:email] = params[:email].downcase
 
       result = validate_params(params) do
-        allow :name, :password, :email, :password_confirmation
-
         validates :name, :presence => true, length: { maximum: 50 }
         validates :password, :presence => true, length: { in: 6..20 }, confirmation: true
         validates_presence_of :email

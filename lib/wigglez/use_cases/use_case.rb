@@ -21,7 +21,9 @@ class UseCase
 
   def validate_params(params, &block)
     validate_class = Class.new(Validator, &block)
-    # params.keys.each {|p|  }
+    params.keys.each do |param_name|
+      validate_class.class_eval "attr_accessor :#{param_name}"
+    end
     validate_class.new(params)
   end
 
