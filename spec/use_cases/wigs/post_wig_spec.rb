@@ -8,7 +8,6 @@ describe Wigglez::PostWig do
     @PostWig = Wigglez::PostWig.new
     @User = FactoryGirl.create(:user)
     @Wig = {
-      donor_id: @User.id,
       material: 'synthetic',
       color: 'brown',
       length: 'long',
@@ -22,7 +21,7 @@ describe Wigglez::PostWig do
 
   describe 'params' do
     it "should have the not required params set to nil" do
-      result = @PostWig.run(@Wig)
+      result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq true
       expect(result.wig.tracking_number).to eq nil
       expect(result.wig.receiver).to eq nil
@@ -34,7 +33,7 @@ describe Wigglez::PostWig do
       @Wig.delete(:retail_estimate)
       @Wig.delete(:construction)
       @Wig.delete(:size)
-      result = @PostWig.run(@Wig)
+      result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq true
       expect(result.wig.retail_estimate).to eq nil
       expect(result.wig.construction).to eq nil
@@ -42,7 +41,7 @@ describe Wigglez::PostWig do
     end
 
     it 'should have all of the required params' do
-      result = @PostWig.run(@Wig)
+      result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq true
       expect(result.wig.donor).to eq @User.id
       expect(result.wig.material).to eq 'synthetic'
@@ -57,10 +56,17 @@ describe Wigglez::PostWig do
     it 'should throw an error if a required field is empty' do
       @Wig[:color] = ""
       @Wig[:material] = ""
-      result = @PostWig.run(@Wig)
+      result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
       expect(result.reasons).to eq :color => ["can't be blank"], :material => ["can't be blank"]
+    end
+
+    it 'should throw an error if the donor is not registered' do
+      result = @PostWig.run(@Wig, 0)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :donor_id => ["The donor is not registered."]
     end
   end
 

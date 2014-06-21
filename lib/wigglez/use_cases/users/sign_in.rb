@@ -17,7 +17,7 @@ module Wigglez
 
       user = Wigglez.db.get_user_by_email(params[:email])
       if !user
-        return failure(:invalid_params, :reasons => { :no_user => ["No user associated with that email"] })
+        return failure(:invalid_params, :reasons => { :email => ["is not associated with a user"] })
       end
 
       bcrpyt_password = BCrypt::Password.new(user.password_digest)

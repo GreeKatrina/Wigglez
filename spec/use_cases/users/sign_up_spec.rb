@@ -6,6 +6,7 @@ describe Wigglez::SignUp do
   before(:each) do
     @db = Wigglez.db
     @SignUp = Wigglez::SignUp.new
+    @OldUser = FactoryGirl.create(:user)
     @User = { name: 'Katrina', email: 'theo@gmail.com', password: 'password', password_confirmation: 'password' }
   end
 
@@ -60,6 +61,13 @@ describe Wigglez::SignUp do
       expect(result.success?).to eq true
       expect(result.user.email).to eq 'theo@gmail.com'
       expect(result.user.email).to_not eq 'ThEo@GmAiL.cOm'
+    end
+    it 'has to be be unique' do
+      @User[:email] = @OldUser.email
+      result = @SignUp.run(@User)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :email => ["is already taken"]
     end
   end
 

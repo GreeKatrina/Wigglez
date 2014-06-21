@@ -21,7 +21,7 @@ module Wigglez
 
       user = Wigglez.db.get_user_by_email(params[:email])
       if user
-        return failure(:email_taken)
+        return failure(:invalid_params, :reasons => { :email => ["is already taken"] })
       end
 
       params.delete(:password_confirmation)

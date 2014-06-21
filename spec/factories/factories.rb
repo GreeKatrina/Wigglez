@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user, class: Wigglez::Database::SQL::User, :aliases => [:donor, :receiver] do
+  factory :user, class: Wigglez::Database::SQL::User, :aliases => [:donor] do
     name "Katrina"
     sequence(:email) {|n| "email#{n}@factory.com" }
   end
@@ -24,5 +24,9 @@ FactoryGirl.define do
     condition 'new'
     construction 'custom'
     size 'average'
+  end
+  factory :user2, class: Wigglez::Database::SQL::User, :aliases => [:receiver] do
+    name "Miranda"
+    sequence(:email) {|n| "email#{n}@factory.com"}
   end
 end
