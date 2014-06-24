@@ -4,11 +4,13 @@ module Wigglez
   class PostWig < UseCase
 
     def run(wig, donor_id)
+
       # params that should always be set to nil when wig is created
       not_required_params = [:tracking_number, :receiver_id, :date_picked, :received]
       for param_name in not_required_params
         wig[param_name] = nil
       end
+
       # put both of these in an array incase I want to add more to either later
       optional_params = [:retail_estimate, :construction, :size]
       for param_name in optional_params
@@ -17,6 +19,11 @@ module Wigglez
 
       result = validate_params(wig) do
         validates_presence_of :material, :color, :length, :gender, :condition
+        validates :material, :inclusion => { :within => ['human hair', 'synthetic'] }
+        validates :color, :inclusion => { :within => ['blonde', 'black', 'dark brown', 'medium brown', 'light brown', 'red', 'white', 'grey', 'other'] }
+        validates :length, :inclusion => { :within => ['short', 'medium', 'long'] }
+        validates :gender, :inclusion => { :within => ['male', 'female'] }
+        validates :condition, :inclusion => { :within => ['poor', 'fair', 'lightly used', 'new'] }
       end
 
       if !result.valid?

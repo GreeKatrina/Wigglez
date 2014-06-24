@@ -9,12 +9,12 @@ describe Wigglez::PostWig do
     @User = FactoryGirl.create(:user)
     @Wig = {
       material: 'synthetic',
-      color: 'brown',
+      color: 'medium brown',
       length: 'long',
       gender: 'female',
       retail_estimate: 400,
       condition: 'new',
-      construction: 'custom',
+      construction: 'monofilament',
       size: 'average'
     }
   end
@@ -45,11 +45,11 @@ describe Wigglez::PostWig do
       expect(result.success?).to eq true
       expect(result.wig.donor).to eq @User.id
       expect(result.wig.material).to eq 'synthetic'
-      expect(result.wig.color).to eq 'brown'
+      expect(result.wig.color).to eq 'medium brown'
       expect(result.wig.length).to eq 'long'
       expect(result.wig.gender).to eq 'female'
       expect(result.wig.condition).to eq 'new'
-      expect(result.wig.construction).to eq 'custom'
+      expect(result.wig.construction).to eq 'monofilament'
       expect(result.wig.size).to eq 'average'
     end
 
@@ -59,7 +59,7 @@ describe Wigglez::PostWig do
       result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
-      expect(result.reasons).to eq :color => ["can't be blank"], :material => ["can't be blank"]
+      expect(result.reasons).to eq :color => ["can't be blank", "is not included in the list"], :material => ["can't be blank", "is not included in the list"]
     end
 
     it 'should throw an error if the donor is not registered' do

@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'rails_helper'
 require 'pry-byebug'
+require 'time'
 
 describe Wigglez::PickWig do
   before(:each) do
@@ -9,14 +10,13 @@ describe Wigglez::PickWig do
     @Donor = FactoryGirl.create(:user)
     @Receiver = FactoryGirl.create(:user2)
     @Wig = FactoryGirl.create(:wig)
-    # Wigglez::PostWig.new.run()
-    t = Time.now
-    @date_picked = "#{t.year} #{t.month} #{t.day}"
+    Wigglez::PostWig.new.run(@Wig, @Donor.id)
+    @date_picked = Time.now.strftime("%m/%d/%Y")
   end
 
   describe 'user' do
     xit 'should be the receiver of the wig' do
-      result = @PickWig.run(@Receiver, @Wig)
+      result = @PickWig.run(@Wig.id, @Receiver.id)
       expect(result.success?).to eq true
       expect(result.wig.receiver).to eq @Receiver.id
       expect(result.wig.donor).to eq @Donor.id

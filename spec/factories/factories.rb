@@ -6,12 +6,12 @@ FactoryGirl.define do
   factory :wig, class: Wigglez::Database::SQL::Wig do
     donor
     material 'synthetic'
-    color 'brown'
+    color 'medium brown'
     length 'long'
     gender 'female'
     retail_estimate 400
     condition 'new'
-    construction 'custom'
+    construction 'monofilament'
     size 'average'
   end
   factory :wig2, class: Wigglez::Database::SQL::Wig do
@@ -22,7 +22,7 @@ FactoryGirl.define do
     gender 'female'
     retail_estimate 300
     condition 'new'
-    construction 'custom'
+    construction 'monofilament'
     size 'average'
   end
   factory :user2, class: Wigglez::Database::SQL::User, :aliases => [:receiver] do

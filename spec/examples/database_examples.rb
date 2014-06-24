@@ -39,18 +39,18 @@ shared_examples 'a database' do
     expect(@wig).to_not be_nil
     expect(@wig.donor_id).to eq @user.id
     expect(@wig.material).to eq 'synthetic'
-    expect(@wig.color).to eq 'brown'
+    expect(@wig.color).to eq 'medium brown'
     expect(@wig.length).to eq 'long'
     expect(@wig.gender).to eq 'female'
     expect(@wig.retail_estimate).to eq 400
     expect(@wig.condition).to eq 'new'
-    expect(@wig.construction).to eq 'custom'
+    expect(@wig.construction).to eq 'monofilament'
     expect(@wig.size).to eq 'average'
   end
 
   it 'retreives a wig' do
     retrieved_wig = @db.get_wig(@wig.id)
-    expect(retrieved_wig.color).to eq 'brown'
+    expect(retrieved_wig.color).to eq 'medium brown'
     expect(retrieved_wig.length).to eq 'long'
     expect(retrieved_wig.retail_estimate).to eq 400
 
