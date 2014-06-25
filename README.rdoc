@@ -6,6 +6,8 @@ Wigglez is a website inspired by the strength of cancer survivors to help give w
 
 * User authentication using BCrypt and ActiveModel Validations
 
+* Using Ruby on Rails 4.1.0
+
 * Currently working on implementing being able to post, pick, and browse wigs.
 
 * Next up is making it look fancy to people other than developers creeping on my Github.
