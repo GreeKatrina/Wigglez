@@ -63,7 +63,7 @@ shared_examples 'a database' do
   it 'grabs all the wigs' do
     wigs = @db.all_wigs
     expect(wigs.count).to eq 2
-    expect(wigs.map &:donor).to include @user.id
+    expect(wigs.map &:donor_id).to include @user.id
     expect(wigs.map &:color).to include 'blonde'
     expect(wigs.map &:length).to include 'long'
   end

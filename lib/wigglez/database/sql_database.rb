@@ -26,27 +26,27 @@ module Wigglez
 
       def create_user(attrs)
         new_user = User.create(attrs)
-        Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
+        Wigglez::User.new(new_user)
       end
 
       def get_user(id)
         if User.exists?(id)
           new_user = User.find(id)
-          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
+          Wigglez::User.new(new_user)
         end
       end
 
       def get_user_by_email(email)
         if User.exists?(email: email)
           new_user = User.find_by email: email
-          Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
+          Wigglez::User.new(new_user)
         end
       end
 
       def all_users
         users = User.all
         users.map do |u|
-          u = Wigglez::User.new(new_user[:id], new_user[:name], new_user[:email], new_user[:password_digest])
+          u = Wigglez::User.new(new_user)
         end
       end
 
@@ -56,65 +56,24 @@ module Wigglez
 
       def create_wig(attrs)
         new_wig = Wig.create(attrs)
-        Wigglez::Wig.new(
-          new_wig.id,
-          new_wig.donor_id,
-          new_wig.receiver_id,
-          new_wig.tracking_number,
-          new_wig.received,
-          new_wig.material,
-          new_wig.color,
-          new_wig.length,
-          new_wig.gender,
-          new_wig.retail_estimate,
-          new_wig.date_picked,
-          new_wig.condition,
-          new_wig.construction,
-          new_wig.size
-        )
+        Wigglez::Wig.new(new_wig)
       end
 
       def get_wig(id)
         if Wig.exists?(id)
           new_wig = Wig.find(id)
-          Wigglez::Wig.new(
-            new_wig.id,
-            new_wig.donor_id,
-            new_wig.receiver_id,
-            new_wig.tracking_number,
-            new_wig.received,
-            new_wig.material,
-            new_wig.color,
-            new_wig.length,
-            new_wig.gender,
-            new_wig.retail_estimate,
-            new_wig.date_picked,
-            new_wig.condition,
-            new_wig.construction,
-            new_wig.size
-          )
+          Wigglez::Wig.new(new_wig)
         end
+      end
+
+      def update_wig
+
       end
 
       def all_wigs
         wigs = Wig.all
         wigs.map do |w|
-          w = Wigglez::Wig.new(
-              w.id,
-              w.donor_id,
-              w.receiver_id,
-              w.tracking_number,
-              w.received,
-              w.material,
-              w.color,
-              w.length,
-              w.gender,
-              w.retail_estimate,
-              w.date_picked,
-              w.condition,
-              w.construction,
-              w.size
-            )
+          w = Wigglez::Wig.new(w)
         end
       end
 

@@ -8,20 +8,17 @@ module Wigglez
       receiver = Wigglez.db.get_user(receiver_id)
 
       if !receiver
-        return failure(:invalid_params, :reasons => { :receiver_id => ["The receiver is not registered."] })
+        return failure(:invalid_params, :reasons => { :receiver => ["The receiver is not registered."] })
       end
 
       wig = Wigglez.db.get_wig(wig_id)
-
-
-
-      if !result.valid?
-        return failure(:invalid_params, :reasons => result.errors.messages)
+      if !wig
+        return failure(:invalid_params, :reasons => { :wig => ["That wig does not exist."] } )
       end
 
+      wig[:date_picked] = Time.now.strftime("%m/%d/%Y")
       Wigglez.db.get_wig(wig.id)
       return success(wig: new_wig)
-
     end
 
   end

@@ -22,5 +22,21 @@ describe Wigglez::PickWig do
       expect(result.wig.donor).to eq @Donor.id
       expect(result.wig.date_picked).to eq @date_picked
     end
+
+    xit 'has to be registered' do
+      result = @PickWig.run(@Wig.id, @Receiver.id+1)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :receiver => ["The receiver is not registered."]
+    end
+  end
+
+  describe 'wig' do
+    xit 'has to exist' do
+      result = @PickWig.run(@Wig.id+1, @Receiver.id)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :wig => ["That wig does not exist."]
+    end
   end
 end

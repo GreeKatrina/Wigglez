@@ -43,7 +43,7 @@ describe Wigglez::PostWig do
     it 'should have all of the required params' do
       result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq true
-      expect(result.wig.donor).to eq @User.id
+      expect(result.wig.donor_id).to eq @User.id
       expect(result.wig.material).to eq 'synthetic'
       expect(result.wig.color).to eq 'medium brown'
       expect(result.wig.length).to eq 'long'
