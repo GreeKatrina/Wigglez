@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Wigglez is a website inspired by the strength of cancer survivors to help give wigs free of cost for people currently going through cancer treatment through generous cancer survivors or good citizens.
 
-Things you may want to cover:
+* Database with Postgres
 
-* Ruby version
+* User authentication using BCrypt and ActiveModel Validations
 
-* System dependencies
+* Currently working on implementing being able to post, pick, and browse wigs.
 
-* Configuration
+* Next up is making it look fancy to people other than developers creeping on my Github.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I will post a link to this when I get it up and running on a server. Stay tuned!
