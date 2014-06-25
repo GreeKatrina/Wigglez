@@ -24,7 +24,7 @@ describe Wigglez::PostWig do
       result = @PostWig.run(@Wig, @User.id)
       expect(result.success?).to eq true
       expect(result.wig.tracking_number).to eq nil
-      expect(result.wig.receiver).to eq nil
+      expect(result.wig.receiver_id).to eq nil
       expect(result.wig.date_picked).to eq nil
       expect(result.wig.received).to eq nil
     end

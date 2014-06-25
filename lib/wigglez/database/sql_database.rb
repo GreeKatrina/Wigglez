@@ -66,8 +66,12 @@ module Wigglez
         end
       end
 
-      def update_wig
-
+      def update_wig(id, attrs={})
+        if Wig.exists?(id)
+          wig = Wig.find(id)
+          wig.update(attrs)
+          Wigglez::Wig.new(wig)
+        end
       end
 
       def all_wigs

@@ -16,8 +16,8 @@ module Wigglez
         return failure(:invalid_params, :reasons => { :wig => ["That wig does not exist."] } )
       end
 
-      wig[:date_picked] = Time.now.strftime("%m/%d/%Y")
-      Wigglez.db.get_wig(wig.id)
+      t = DateTime.now
+      new_wig = Wigglez.db.update_wig(wig_id, {receiver_id: receiver_id, date_picked: t})
       return success(wig: new_wig)
     end
 

@@ -38,6 +38,7 @@ group :development, :test do
   gem 'sass'
   gem 'rake'
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'timecop'
 end
 
 group :development do

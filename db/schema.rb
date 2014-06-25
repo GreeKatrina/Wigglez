@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619212902) do
+ActiveRecord::Schema.define(version: 20140625205223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20140619212902) do
     t.string   "gender",          default: "female"
     t.string   "condition"
     t.integer  "retail_estimate"
-    t.integer  "date_picked"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "construction"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140619212902) do
     t.boolean  "received",        default: false
     t.integer  "donor_id"
     t.integer  "receiver_id"
+    t.datetime "date_picked"
   end
 
 end

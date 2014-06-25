@@ -2,29 +2,41 @@ require 'spec_helper'
 require 'rails_helper'
 require 'pry-byebug'
 require 'time'
+require 'timecop'
 
 describe Wigglez::PickWig do
   before(:each) do
+    Timecop.freeze(DateTime.now)
     @db = Wigglez.db
     @PickWig = Wigglez::PickWig.new
     @Donor = FactoryGirl.create(:user)
     @Receiver = FactoryGirl.create(:user2)
-    @Wig = FactoryGirl.create(:wig)
-    Wigglez::PostWig.new.run(@Wig, @Donor.id)
-    @date_picked = Time.now.strftime("%m/%d/%Y")
+    @PostWig = Wigglez::PostWig.new
+    @Wig = {
+        material: 'synthetic',
+        color: 'medium brown',
+        length: 'long',
+        gender: 'female',
+        retail_estimate: 400,
+        condition: 'new',
+        construction: 'monofilament',
+        size: 'average'
+      }
   end
 
   describe 'user' do
-    xit 'should be the receiver of the wig' do
-      result = @PickWig.run(@Wig.id, @Receiver.id)
+    it 'should be the receiver of the wig' do
+      posted_wig = @PostWig.run(@Wig, @Donor.id)
+      result = @PickWig.run(posted_wig.wig.id, @Receiver.id)
       expect(result.success?).to eq true
-      expect(result.wig.receiver).to eq @Receiver.id
-      expect(result.wig.donor).to eq @Donor.id
-      expect(result.wig.date_picked).to eq @date_picked
+      expect(result.wig.receiver_id).to eq @Receiver.id
+      expect(result.wig.donor_id).to eq @Donor.id
+      expect(result.wig.date_picked).to eq DateTime.now
     end
 
-    xit 'has to be registered' do
-      result = @PickWig.run(@Wig.id, @Receiver.id+1)
+    it 'has to be registered' do
+      posted_wig = @PostWig.run(@Wig, @Donor.id)
+      result = @PickWig.run(posted_wig.wig.id, @Receiver.id+1)
       expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
       expect(result.reasons).to eq :receiver => ["The receiver is not registered."]
@@ -32,11 +44,16 @@ describe Wigglez::PickWig do
   end
 
   describe 'wig' do
-    xit 'has to exist' do
-      result = @PickWig.run(@Wig.id+1, @Receiver.id)
+    it 'has to exist' do
+      posted_wig = @PostWig.run(@Wig, @Donor.id)
+      result = @PickWig.run(posted_wig.wig.id+1, @Receiver.id)
       expect(result.success?).to eq false
       expect(result.error).to eq :invalid_params
       expect(result.reasons).to eq :wig => ["That wig does not exist."]
     end
+  end
+
+  after(:each) do
+    @db.CLEAR_ALL
   end
 end

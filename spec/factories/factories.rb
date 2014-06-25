@@ -27,6 +27,6 @@ FactoryGirl.define do
   end
   factory :user2, class: Wigglez::Database::SQL::User, :aliases => [:receiver] do
     name "Miranda"
-    sequence(:email) {|n| "email#{n}@factory.com"}
+    sequence(:email) {|n| "email1#{n}@factory.com"}
   end
 end

@@ -60,6 +60,13 @@ shared_examples 'a database' do
     expect(retrieved_wig2.retail_estimate).to eq 300
   end
 
+  it 'updates a wig' do
+    @db.update_wig(@wig.id, {condition: "poor", tracking_number: 294723947})
+    wig = @db.get_wig(@wig.id)
+    expect(wig.condition).to eq "poor"
+    expect(wig.tracking_number).to eq 294723947
+  end
+
   it 'grabs all the wigs' do
     wigs = @db.all_wigs
     expect(wigs.count).to eq 2
