@@ -1,6 +1,6 @@
 == README
 
-Wigglez is a website inspired by the strength of cancer survivors to help give wigs free of cost for people currently going through cancer treatment through generous cancer survivors or good citizens.
+Wigglez is a website inspired by the strength of cancer survivors to help give wigs, free of cost, to people currently going through cancer treatment through the generous donations of cancer survivors or good citizens.
 
 * Database with Postgres
 
