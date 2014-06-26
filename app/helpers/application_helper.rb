@@ -1,13 +1,13 @@
 module ApplicationHelper
 
-  # Methods for drop-down selections when creating a wig
+  # Helper methods for options in a drop down selection for a wig
   # First element is what is displayed, second is what
   # goes into the database
   def wig_colors
     [
+      ['medium brown', 'medium brown'],
       ['black', 'black'],
       ['dark brown', 'dark brown'],
-      ['medium brown', 'medium brown'],
       ['light brown', 'light brown'],
       ['blonde', 'blonde'],
       ['red', 'red'],
@@ -19,9 +19,9 @@ module ApplicationHelper
 
   def wig_lengths
     [
+      ['medium', 'medium'],
       ['long', 'long'],
       ['medium/long', 'medium long'],
-      ['medium', 'medium'],
       ['medium/short', 'medium short'],
       ['short', 'short']
     ]
@@ -38,18 +38,18 @@ module ApplicationHelper
 
   def wig_constructions
     [
+      ['basic cap', 'basic cap'],
       ['hand tied', 'hand tied'],
       ['monofilamnet', 'monofilamnet'],
-      ['lace front', 'lace front'],
-      ['basic cap', 'basic cap']
+      ['lace front', 'lace front']
     ]
   end
 
   def wig_sizes
     [
+      ['average', 'average'],
       ['large', 'large'],
       ['average/large', 'average large'],
-      ['average', 'average'],
       ['average/petite', 'average petite'],
       ['petite', 'petite']
     ]
@@ -57,8 +57,8 @@ module ApplicationHelper
 
   def wig_materials
     [
-      ['human hair', 'human hair'],
-      ['synthetic', 'synthetic']
+      ['synthetic', 'synthetic'],
+      ['human hair', 'human hair']
     ]
   end
 
@@ -72,10 +72,17 @@ module ApplicationHelper
 
   def wig_styles
     [
-      ['bobs', 'bobs'],
-      ['pixie', 'pixie'],
+      ['bangs', 'bangs'],
       ['layered', 'layered'],
-      ['bangs', 'bangs']
+      ['pixie', 'pixie'],
+      ['bobs', 'bobs']
+    ]
+  end
+
+  def wig_genders
+    [
+      ['female', 'female'],
+      ['male', 'male']
     ]
   end
 end

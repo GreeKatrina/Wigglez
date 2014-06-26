@@ -5,43 +5,53 @@
   <%= form_tag(user_wigs_path, method: 'post') do %>
 
       <div class="field">
-          <%= label_tag :color %>
-          <%= text_field_tag :color %>
+          <%= label_tag :color %> :
+          <%= select_tag 'color', options_for_select(wig_colors), {:include_blank => ""} %>
       </div>
 
       <div class="field">
-          <%= label_tag :length %>
-          <%= text_field_tag :length %>
+          <%= label_tag :length %> :
+          <%= select_tag 'length', options_for_select(wig_lengths), {:include_blank => ""} %>
       </div>
 
       <div class="field">
-          <%= label_tag :gender %>
-          <%= text_field_tag :gender %>
+          <%= label_tag :gender %> :
+          <%= select_tag 'gender', options_for_select(wig_genders), {:include_blank => ""} %>
       </div>
 
       <div class="field">
-          <%= label_tag :material %>
-          <%= text_field_tag :material %>
+          <%= label_tag :material %> :
+          <%= select_tag 'material', options_for_select(wig_materials), {:include_blank => ""} %>
       </div>
 
       <div class="field">
-          <%= label_tag :condition %>
-          <%= text_field_tag :condition %>
+          <%= label_tag :construction %> :
+          <%= select_tag 'construction', options_for_select(wig_constructions), {:include_blank => ""} %>
       </div>
 
       <div class="field">
-          <%= label_tag :size %>
-          <%= text_field_tag :size %>
+          <%= label_tag :condition %> :
+          <%= select_tag 'condition', options_for_select(wig_conditions), {:include_blank => ""} %>
       </div>
 
       <div class="field">
-          <%= label_tag :retail_estimate %>
+          <%= label_tag :retail_estimate %> :
           <%= text_field_tag :retail_estimate %>
       </div>
 
       <div class="field">
-          <%= label_tag :construction %>
-          <%= text_field_tag :construction %>
+          <%= label_tag :size %> :
+          <%= select_tag 'size', options_for_select(wig_sizes), {:include_blank => ""}  %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :texture %> :
+          <%= select_tag 'texture', options_for_select(wig_textures), {:include_blank => ""} %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :style %> :
+          <%= select_tag 'style', options_for_select(wig_styles), {:include_blank => ""} %>
       </div>
   <% end %>
 
