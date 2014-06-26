@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  before_filter :authenticate_user!, only: [:destroy]
+
   def new
     if session[:user_id]
       redirect_to home_path and return
@@ -46,10 +48,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:user_id]
-      session[:user_id] = nil
-      flash[:log_out] = "You have successfully Logged out."
-    end
+    session[:user_id] = nil
+    flash[:log_out] = "You have successfully Logged out."
     redirect_to root_url
   end
 

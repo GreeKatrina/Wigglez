@@ -1,5 +1,5 @@
 <% @page_title = "Sign In" -%>
-<div class= "Sign_Form">
+<div class= "Sign_Form" id="form">
     <h1>Sign in</h1>
     <%= form_tag(sign_in_attempt_path, method: 'post') do %>
         <% if flash[:error] && !flash[:error][:password] && !flash[:error][:email] %>

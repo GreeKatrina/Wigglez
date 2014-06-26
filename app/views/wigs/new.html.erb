@@ -1,0 +1,48 @@
+<% @page_title = "Post A Wig" %>
+<div class="Post_Wig" id="form">
+
+  <h1>Post A Wig</h1>
+  <%= form_tag(user_wigs_path, method: 'post') do %>
+
+      <div class="field">
+          <%= label_tag :color %>
+          <%= text_field_tag :color %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :length %>
+          <%= text_field_tag :length %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :gender %>
+          <%= text_field_tag :gender %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :material %>
+          <%= text_field_tag :material %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :condition %>
+          <%= text_field_tag :condition %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :size %>
+          <%= text_field_tag :size %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :retail_estimate %>
+          <%= text_field_tag :retail_estimate %>
+      </div>
+
+      <div class="field">
+          <%= label_tag :construction %>
+          <%= text_field_tag :construction %>
+      </div>
+  <% end %>
+
+</div>
