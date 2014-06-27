@@ -1,0 +1,20 @@
+// COLOR delcarations, don't use in style sheets
+$white: #E8E5E7;
+$light-grey: #D2D7D3;
+$red: #E3000E;
+$dark-red: #CF000F;
+$grey: #2C3133;
+
+// Element variables
+
+$body-bg-color: $grey;
+$text-body-color: $white;
+
+body {
+  background-color: $grey;
+}
+
+p {
+  color: red;
+  text-align: center;
+}

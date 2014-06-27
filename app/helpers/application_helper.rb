@@ -5,6 +5,7 @@ module ApplicationHelper
   # goes into the database
   def wig_colors
     [
+      ['select color', nil],
       ['medium brown', 'medium brown'],
       ['black', 'black'],
       ['dark brown', 'dark brown'],
@@ -19,6 +20,7 @@ module ApplicationHelper
 
   def wig_lengths
     [
+      ['select length', nil],
       ['medium', 'medium'],
       ['long', 'long'],
       ['medium/long', 'medium long'],
@@ -29,6 +31,7 @@ module ApplicationHelper
 
   def wig_conditions
     [
+      ['select condition', nil],
       ['new', 'new'],
       ['lightly used', 'lightly used'],
       ['fair', 'fair'],
@@ -38,6 +41,7 @@ module ApplicationHelper
 
   def wig_constructions
     [
+      ['select construction', nil],
       ['basic cap', 'basic cap'],
       ['hand tied', 'hand tied'],
       ['monofilamnet', 'monofilamnet'],
@@ -47,6 +51,7 @@ module ApplicationHelper
 
   def wig_sizes
     [
+      ['select size', nil],
       ['average', 'average'],
       ['large', 'large'],
       ['average/large', 'average large'],
@@ -57,6 +62,7 @@ module ApplicationHelper
 
   def wig_materials
     [
+      ['select material', nil],
       ['synthetic', 'synthetic'],
       ['human hair', 'human hair']
     ]
@@ -64,6 +70,7 @@ module ApplicationHelper
 
   def wig_textures
     [
+      ['select texture', nil],
       ['straight', 'straight'],
       ['curly', 'curly'],
       ['wavy', 'wavy']
@@ -72,6 +79,7 @@ module ApplicationHelper
 
   def wig_styles
     [
+      ['select style', nil],
       ['bangs', 'bangs'],
       ['layered', 'layered'],
       ['pixie', 'pixie'],
@@ -81,6 +89,7 @@ module ApplicationHelper
 
   def wig_genders
     [
+      ['select gender', nil],
       ['female', 'female'],
       ['male', 'male']
     ]

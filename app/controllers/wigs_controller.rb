@@ -3,6 +3,7 @@ class WigsController < ApplicationController
   before_filter :authenticate_user!
 
   def new
+
     render 'new'
   end
 
