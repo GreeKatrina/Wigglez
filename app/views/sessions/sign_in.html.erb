@@ -1,12 +1,18 @@
 <% @page_title = "Sign In" -%>
 <div class= "Sign_Form" id="form">
+
     <h1>Sign in</h1>
+
     <%= form_tag(sign_in_attempt_path, method: 'post') do %>
+
+        <!-- Check if email is not associated with a user -->
         <% if flash[:error] && !flash[:error][:password] && !flash[:error][:email] %>
           <% flash[:error].each do |k,v| %>
               <p class='flash'>Error: <%=h flash[:error][k][0] %></p>
           <% end %>
         <% end %>
+
+        <!-- Check if email format is correct -->
         <% if flash[:error] && flash[:error][:email] %>
             <p class='flash'>email <%=h flash[:error][:email][0] %></p>
         <% end %>
@@ -14,6 +20,8 @@
                 <%= label_tag :email %>
                 <%= text_field_tag :email, params[:email] %>
             </div>
+
+        <!-- Check if password is correct -->
         <% if flash[:error] && flash[:error][:password] %>
             <p class='flash'>password <%=h flash[:error][:password][0] %></p>
         <% end %>
@@ -21,6 +29,9 @@
                 <%= label_tag :password %>
                 <%= password_field_tag :password %>
             </div>
+
         <div class="actions"><%= submit_tag "Log in" %></div>
+
     <% end %>
+
 </div>

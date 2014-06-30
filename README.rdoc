@@ -1,15 +1,23 @@
-== README
+Wigglez
+==========
 
 Wigglez is a website inspired by the strength of cancer survivors to help give wigs, free of cost, to people currently going through cancer treatment through the generous donations of cancer survivors or good citizens.
 
-* Database with Postgres
+## Author
 
-* User authentication using BCrypt and ActiveModel Validations
+Katrina Theodosopoulos
++ Email: katrinaelaine6@mgail.com
++ Twitter: http://twitter.com/greekatrina
++ GitHub: https://github.com/greekatrina
 
-* Using Ruby on Rails 4.1.0
+## Development
 
-* Currently working on implementing being able to post, pick, and browse wigs.
++ Ruby on Rails 4.1.0
++ PostgreSQL
++ User authentication with BCrypt and ActiveModel Validations
 
-* Next up is making it look fancy to people other than developers creeping on my Github.
+## Future Goals
 
-I will post a link to this when I get it up and running on a server. Stay tuned!
++ Post images with wigs
++ Allow user notifications
++ Implement user emails

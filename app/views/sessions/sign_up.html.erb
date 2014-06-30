@@ -4,6 +4,7 @@
     <h1>Sign Up</h1>
     <%= form_tag(sign_up_attempt_path, method: 'post') do %>
 
+        <!-- Check if name format is correct -->
         <% if flash[:error] && flash[:error][:name] %>
             <p class='flash'>name <%=h flash[:error][:name][0] %></p>
         <% end %>
@@ -12,6 +13,7 @@
             <%= text_field_tag :name %>
         </div>
 
+        <!-- Check if email is already taken or if format is correct -->
         <% if flash[:error] && flash[:error][:email] %>
             <p class='flash'>email <%=h flash[:error][:email][0] %></p>
         <% end %>
@@ -20,6 +22,7 @@
             <%= text_field_tag :email %>
         </div>
 
+        <!-- Check if password format is correct -->
         <% if flash[:error] && flash[:error][:password] %>
             <p class='flash'>password <%=h flash[:error][:password][0] %></p>
         <% end %>
@@ -28,6 +31,7 @@
             <%= password_field_tag :password %>
         </div>
 
+        <!-- Check if both passwords match -->
         <% if flash[:error] && flash[:error][:password_confirmation] %>
             <p class='flash'>password confirmation <%=h flash[:error][:password_confirmation][0] %></p>
         <% end %>

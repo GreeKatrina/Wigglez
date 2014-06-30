@@ -12,6 +12,7 @@ class UseCase
       ActiveModel::Name.new(self, nil, 'validator')
     end
 
+    # Setter method
     def initialize(attrs)
       attrs.each do |name, val|
         self.send "#{name}=", val

@@ -1,8 +1,8 @@
 module ApplicationHelper
 
-  # Helper methods for options in a drop down selection for a wig
-  # First element is what is displayed, second is what
-  # goes into the database
+  # Helper methods for options in a drop down selection
+  # for a wig. First element is what is displayed,
+  # second is what goes into the database.
   def wig_colors
     [
       ['select color', nil],
