@@ -16,9 +16,6 @@ ActiveRecord::Schema.define(version: 20140625205223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "sessions_tables", force: true do |t|
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",           default: "", null: false
     t.datetime "created_at"
