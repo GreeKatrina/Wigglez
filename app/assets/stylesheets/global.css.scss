@@ -1,20 +1,35 @@
-// COLOR delcarations, don't use in style sheets
-$white: #E8E5E7;
-$light-grey: #D2D7D3;
-$red: #E3000E;
-$dark-red: #CF000F;
-$grey: #2C3133;
-
-// Element variables
-
-$body-bg-color: $grey;
-$text-body-color: $white;
+@import '_variables';
 
 body {
-  background-color: $grey;
+  background-color: $body-bg-color;
+  color: $text-body-color;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
-p {
-  color: red;
-  text-align: center;
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-page-content {
+  margin: 20% 0;
+}
+
+.success-stories h2 {
+  width: 100%;
+  background-color: $success-stories-bg-color;
+  color: $success-stories-text-color;
+}
+
+.success-story {
+  width: 100%;
+  display: block;
+  @media screen and (min-width: $break-small) {
+    width: 49%;
+    display: inline-block;
+  }
 }
