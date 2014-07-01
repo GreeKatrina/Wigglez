@@ -1,32 +1,5 @@
 @import '_variables';
 
-.sign {
-
-  width: 100%;
-
-  a {
-    text-decoration: none;
-    color: $button-text-color;
-    background-color: $button-bg-color;
-    padding: 1em 2em;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    border: 1px solid $button-border-color;
-  }
-  a:hover {
-    background-color: $button-bg-hover-color;
-    color: $button-text-hover-color;
-    .ion-chevron-right {
-      color: $button-text-hover-color;
-    }
-  }
-}
-
-.sign-in {
-  margin-right: 15%;
-}
-
 a {
   text-decoration: none;
   color: $link-color;

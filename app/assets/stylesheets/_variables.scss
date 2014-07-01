@@ -36,9 +36,13 @@ $button-border-color: $red;
 
 // Media Queries
 $break-zero: 0px;
-$break-small: 480px;
+$break-xsmall: 480px;
+$break-small: 550px;
+$break-medium-small: 660px;
 $break-medium: 768px;
+$break-medium-large: 900px;
 $break-large: 1140px;
+$break-xlarge: 0px;
 
 // Fonts
 $body-font: 'Caviar Dreams';
