@@ -4,37 +4,10 @@ body {
   background-color: $body-bg-color;
   color: $text-body-color;
   font-family: $body-font;
+  font-weight: 700;
   text-align: center;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
   margin: 0;
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-}
-
-.landing-page-content {
-  margin: 20% 0;
-}
-
-blockquote {
-  margin: 10% 0 15% 0;
-}
-
-.success-stories h2 {
-  width: 100%;
-  background-color: $success-stories-bg-color;
-  color: $success-stories-text-color;
-}
-
-.success-story {
-  width: 100%;
-  display: block;
-  @media screen and (min-width: $break-small) {
-    width: 49%;
-    display: inline-block;
-  }
 }
