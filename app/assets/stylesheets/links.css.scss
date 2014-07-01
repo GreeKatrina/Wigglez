@@ -17,6 +17,9 @@
   a:hover {
     background-color: $button-bg-hover-color;
     color: $button-text-hover-color;
+    .ion-chevron-right {
+      color: $button-text-hover-color;
+    }
   }
 }
 

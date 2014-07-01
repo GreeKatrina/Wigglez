@@ -13,11 +13,11 @@
   <!-- NAV BAR -->
   <nav class="nav">
     <ul class="nav-list">
-        <li>About Us </li>
-        <li>Contact Us </li>
-        <li>Facebook Link </li>
-        <li>Twitter Link </li>
-        <li>Github Link </li>
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li><i class="ion-social-twitter"></i></li>
+        <li><i class="ion-social-facebook"></i></li>
+        <li><i class="ion-social-github"></i></li>
     </ul>
   </nav>
 
@@ -30,9 +30,11 @@
 
     <!-- SIGN IN AND SIGN UP BUTTONS -->
     <div class="sign">
-      <%= link_to "Sign In", sign_in_path, class: 'sign-in' %>
+      <a class="sign-in" href="/sign_in">Sign In&nbsp;&nbsp;<i class="ion-chevron-right"></i></a>
+      <a class="sign-up" href="/sign_up">Sign Up&nbsp;&nbsp;<i class="ion-chevron-right"></i></a>
+<!--       <%= link_to "Sign In", sign_in_path, class: 'sign-in' %>
       <%= link_to "Sign Up", sign_up_path, class: 'sign-up' %>
-    </div>
+ -->    </div>
   </div>
 
   <!-- SUCCESS STORIES -->

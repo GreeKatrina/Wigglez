@@ -16,4 +16,14 @@
     display: inline-block;
     vertical-align: middle;
   }
+  li:hover {
+    color: $button-text-hover-color;
+    i:hover {
+      color: $button-text-hover-color;
+    }
+  }
+}
+
+i {
+  color: $font-awesome;
 }

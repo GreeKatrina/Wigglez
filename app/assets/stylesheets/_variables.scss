@@ -26,6 +26,7 @@ $success-sotry-text-color: $white;
 $link-color: $red;
 $link-hover-color: $light-grey;
 $footer-text-color: $red;
+$font-awesome: $red;
 
 // Button colors
 $button-text-color: $red;
@@ -39,3 +40,9 @@ $break-zero: 0px;
 $break-small: 480px;
 $break-medium: 768px;
 $break-large: 1140px;
+
+// Fonts
+$body-font: 'Caviar Dreams';
+$body-bold-font: 'Caviar Dreams Bold';
+$body-bold-italic-font: 'Caviar Dreams Bold Italic';
+$body-italic-font: 'Caviar Dreams Italic';
