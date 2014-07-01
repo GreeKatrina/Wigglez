@@ -6,7 +6,7 @@ Wigglez is a website inspired by the strength of cancer survivors to help give w
 ## Author
 
 Katrina Theodosopoulos
-+ Email: katrinaelaine6@mgail.com
++ Email: katrinaelaine6@gmail.com
 + Twitter: http://twitter.com/greekatrina
 + GitHub: https://github.com/greekatrina
 
