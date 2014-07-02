@@ -1,7 +1,21 @@
 @import '_variables';
 
 button {
-  background-color: $button-bg-color;
   text-decoration: none;
   color: $button-text-color;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid $button-border-color;
+}
+
+button:hover {
+  text-decoration: none;
+  color: $button-text-hover-color;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid $button-border-hover-color;
 }

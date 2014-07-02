@@ -1,0 +1,142 @@
+@import '_variables';
+
+.wrapper h1 {
+  margin: 0 0 1.5em 0;
+}
+
+@media (min-width: $break-zero){
+  #sign-in {
+    width: 170px;
+    margin: 0 30%;
+  }
+  #sign-up {
+    width: 370px;
+    margin: 0 5%;
+  }
+}
+
+@media (min-width: $break-xsmall) {
+  #sign-in {
+    margin: 0 33%;
+  }
+  #sign-up {
+    margin: 0 18%;
+  }
+}
+
+@media (min-width: $break-medium-small) {
+  #sign-in {
+    margin: 0 38%;
+  }
+  #sign-up {
+    margin: 0 25%;
+  }
+}
+
+@media (min-width: $break-medium) {
+  #sign-in {
+    margin: 0 40%;
+  }
+  #sign-up {
+    margin: 0 28%;
+  }
+}
+
+@media (min-width: $break-medium-large) {
+  #sign-in {
+    margin: 0 42%;
+  }
+  #sign-up {
+    margin: 0 30%;
+  }
+}
+
+@media (min-width: $break-large) {
+  #sign-in {
+    margin: 0 44.5%;
+  }
+  #sign-up {
+    margin: 0 37%;
+  }
+}
+
+.field {
+  margin: 0 0 2em 0;
+}
+
+#sign-up .field {
+  display: inline-block;
+}
+
+// Fix autofill chrome issue
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px $grey inset;
+  -webkit-text-fill-color: $button-text-color !important;
+}
+input:-webkit-autofill:hover, input:-webkit-autofill:focus {
+  -webkit-text-fill-color: $button-text-hover-color !important;
+}
+
+input:not([type=submit]) {
+  text-decoration: none;
+  color: $button-text-color;
+  background: none;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid $button-border-color;
+}
+input:focus:not([type=submint]) {
+  text-decoration: none;
+  color: $button-text-hover-color;
+  background: none;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid $button-border-hover-color;
+}
+
+input[type="submit"] {
+  text-decoration: none;
+  color: $button-text-color;
+  background: none;
+  padding: 1em 2em;
+  margin-left: 50%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid $button-border-color;
+}
+
+input[type="submit"]:hover {
+  text-decoration: none;
+  color: $button-text-hover-color;
+  background: none;
+  padding: 1em 2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid $button-border-hover-color;
+}
+
+#sign-in label {
+  margin-right: 100%;
+  padding-left: 0.5em;
+}
+#sign-up {
+  .confirm-pass {
+    margin-right: 0;
+    padding-right: 1em;
+  }
+  .pass {
+    margin-right: 50%;
+  }
+  label {
+    margin-right: 70%;
+  }
+}
+
+
+

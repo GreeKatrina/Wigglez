@@ -21,15 +21,24 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 1.2em;
+    a {
+      color: $nav-text-color;
+    }
+    i {
+      color: $nav-text-color;
+    }
   }
   li:hover {
-    color: $button-text-hover-color;
+    color: $nav-hover-color;
+    a:hover {
+      color: $nav-hover-color;
+    }
     i:hover {
-      color: $button-text-hover-color;
+      color: $nav-hover-color;
     }
   }
 }
 
 #nav-line {
-  color: $button-text-hover-color;
+  color: $nav-hover-color;
 }

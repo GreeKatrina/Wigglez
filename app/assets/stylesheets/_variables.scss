@@ -4,7 +4,7 @@ $light-grey: #D2D7D3;
 $red: #E3000E;
 $dark-red: #CF000F;
 // Use both names, just incase
-$grey: #2C3133;
+$grey: #2c2c2c;
 $gray: #2C3133;
 
 // Element variables
@@ -12,12 +12,13 @@ $gray: #2C3133;
 // Background colors
 $body-bg-color: $grey;
 $footer-bg-color: $white;
-$nav-bg-color: $white;
+$nav-bg-color: $dark-red;
 $success-stories-bg-color: $white;
 $success-sotry-bg-color: $grey;
 
 // Text colors
-$nav-text-color: $red;
+$nav-text-color: $white;
+$nav-hover-color: $grey;
 $quote-color: $light-grey;
 $text-body-color: $white;
 $success-stories-text-color: $grey;
@@ -25,14 +26,14 @@ $success-story-name-color: $light-grey;
 $success-sotry-text-color: $white;
 $link-color: $red;
 $link-hover-color: $light-grey;
-$footer-text-color: $red;
+$sign-text-color: $red;
+$sign-text-hover-color: $white;
 
 // Button colors
 $button-text-color: $red;
-$button-text-hover-color: $grey;
-$button-bg-color: $grey;
-$button-bg-hover-color: $red;
+$button-text-hover-color: $white;
 $button-border-color: $red;
+$button-border-hover-color: $white;
 
 // Media Queries
 $break-zero: 0px;

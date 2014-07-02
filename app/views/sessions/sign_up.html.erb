@@ -1,47 +1,60 @@
 <% @page_title = "Sign Up" %>
-<div class="Sign_Form" id="form">
 
+<!-- NAV BAR -->
+<nav class="nav">
+  <ul class="nav-list">
+      <li><%= link_to "Logo", root_path %></li> <span id="nav-line">|</span>
+      <li>About Us</li> <span id="nav-line">|</span>
+      <li>Contact Us</li> <span id="nav-line">|</span>
+      <li><a href="http://www.twitter.com"><i class="ion-social-twitter"></i></a></li>
+      <li><a href="http://www.facebook.com"><i class="ion-social-facebook"></i></a></li>
+      <li><a href="https://github.com/GreeKatrina/Wigglez"><i class="ion-social-github"></i></a></li>
+  </ul>
+</nav>
+
+<div class="wrapper">
     <h1>Sign Up</h1>
-    <%= form_tag(sign_up_attempt_path, method: 'post') do %>
+    <div class="form-wrapper" id="sign-up">
+        <%= form_tag(sign_up_attempt_path, method: 'post') do %>
 
-        <!-- Check if name format is correct -->
-        <% if flash[:error] && flash[:error][:name] %>
-            <p class='flash'>name <%=h flash[:error][:name][0] %></p>
+            <!-- Check if name format is correct -->
+            <% if flash[:error] && flash[:error][:name] %>
+                <p class='flash'>name <%=h flash[:error][:name][0] %></p>
+            <% end %>
+            <div class="field">
+                <%= label_tag :name %><br>
+                <%= text_field_tag :name %>
+            </div>
+
+            <!-- Check if email is already taken or if format is correct -->
+            <% if flash[:error] && flash[:error][:email] %>
+                <p class='flash'>email <%=h flash[:error][:email][0] %></p>
+            <% end %>
+            <div class="field">
+                <%= label_tag :email %><br>
+                <%= text_field_tag :email %>
+            </div>
+
+            <!-- Check if password format is correct -->
+            <% if flash[:error] && flash[:error][:password] %>
+                <p class='flash'>password <%=h flash[:error][:password][0] %></p>
+            <% end %>
+            <div class="field">
+                <%= label_tag :password, "Password:" , class: "pass" %><br>
+                <%= password_field_tag :password %>
+            </div>
+
+            <!-- Check if both passwords match -->
+            <% if flash[:error] && flash[:error][:password_confirmation] %><br>
+                <p class='flash'>password confirmation <%=h flash[:error][:password_confirmation][0] %></p>
+            <% end %>
+            <div class="field">
+                <%= label_tag :password_confirmation, 'Confirm Password:', class: "confirm-pass" %><br>
+                <%= password_field_tag :password_confirmation %>
+            </div>
+
+            <div class="actions"><%= submit_tag('submit') %></div>
+
         <% end %>
-        <div class="field">
-            <%= label_tag :name %>
-            <%= text_field_tag :name %>
-        </div>
-
-        <!-- Check if email is already taken or if format is correct -->
-        <% if flash[:error] && flash[:error][:email] %>
-            <p class='flash'>email <%=h flash[:error][:email][0] %></p>
-        <% end %>
-        <div class="field">
-            <%= label_tag :email %>
-            <%= text_field_tag :email %>
-        </div>
-
-        <!-- Check if password format is correct -->
-        <% if flash[:error] && flash[:error][:password] %>
-            <p class='flash'>password <%=h flash[:error][:password][0] %></p>
-        <% end %>
-        <div class="field">
-            <%= label_tag :password %>
-            <%= password_field_tag :password %>
-        </div>
-
-        <!-- Check if both passwords match -->
-        <% if flash[:error] && flash[:error][:password_confirmation] %>
-            <p class='flash'>password confirmation <%=h flash[:error][:password_confirmation][0] %></p>
-        <% end %>
-        <div class="field">
-            <%= label_tag :password_confirmation, 'Confirm Password:' %>
-            <%= password_field_tag :password_confirmation %>
-        </div>
-
-        <div class="actions"><%= submit_tag('submit') %></div>
-
-      <% end %>
-
+    </div>
 </div>
