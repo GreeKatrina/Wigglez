@@ -1,11 +1,11 @@
 module ApplicationHelper
 
-  # Helper methods for options in a drop down selection
+  # Helper methods for options in a drop down select
   # for a wig. First element is what is displayed,
   # second is what goes into the database.
   def wig_colors
     [
-      ['select color', nil],
+      ['select', nil],
       ['medium brown', 'medium brown'],
       ['black', 'black'],
       ['dark brown', 'dark brown'],
@@ -20,7 +20,7 @@ module ApplicationHelper
 
   def wig_lengths
     [
-      ['select length', nil],
+      ['select', nil],
       ['medium', 'medium'],
       ['long', 'long'],
       ['medium/long', 'medium long'],
@@ -31,7 +31,7 @@ module ApplicationHelper
 
   def wig_conditions
     [
-      ['select condition', nil],
+      ['select', nil],
       ['new', 'new'],
       ['lightly used', 'lightly used'],
       ['fair', 'fair'],
@@ -41,7 +41,7 @@ module ApplicationHelper
 
   def wig_constructions
     [
-      ['select construction', nil],
+      ['select', nil],
       ['basic cap', 'basic cap'],
       ['hand tied', 'hand tied'],
       ['monofilamnet', 'monofilamnet'],
@@ -51,7 +51,7 @@ module ApplicationHelper
 
   def wig_sizes
     [
-      ['select size', nil],
+      ['select', nil],
       ['average', 'average'],
       ['large', 'large'],
       ['average/large', 'average large'],
@@ -62,7 +62,7 @@ module ApplicationHelper
 
   def wig_materials
     [
-      ['select material', nil],
+      ['select', nil],
       ['synthetic', 'synthetic'],
       ['human hair', 'human hair']
     ]
@@ -70,7 +70,7 @@ module ApplicationHelper
 
   def wig_textures
     [
-      ['select texture', nil],
+      ['select', nil],
       ['straight', 'straight'],
       ['curly', 'curly'],
       ['wavy', 'wavy']
@@ -79,7 +79,7 @@ module ApplicationHelper
 
   def wig_styles
     [
-      ['select style', nil],
+      ['select', nil],
       ['bangs', 'bangs'],
       ['layered', 'layered'],
       ['pixie', 'pixie'],
@@ -89,7 +89,7 @@ module ApplicationHelper
 
   def wig_genders
     [
-      ['select gender', nil],
+      ['select', nil],
       ['female', 'female'],
       ['male', 'male']
     ]

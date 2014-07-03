@@ -14,56 +14,65 @@
     <div class="form-wrapper" id="post-wig">
       <!-- Drop-down selections are in helpers/application_helper.rb -->
       <%= form_tag(user_wigs_path, method: 'post') do %>
-
-          <div class="field">
-              <%= label_tag :color %> :
-              <%= select_tag 'color', options_for_select(wig_colors) %>
+        <div class="form-row">
+          <div class="field left">
+              <%= label_tag "Color :" %> <br>
+              <%= select_tag 'color', options_for_select(wig_colors), class: "drop-down" %>
           </div>
 
-          <div class="field">
-              <%= label_tag :length %> :
-              <%= select_tag 'length', options_for_select(wig_lengths) %>
+          <div class="field right">
+              <%= label_tag "Length :" %> <br>
+              <%= select_tag 'length', options_for_select(wig_lengths), class: "drop-down" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field left">
+              <%= label_tag "Gender :" %> <br>
+              <%= select_tag 'gender', options_for_select(wig_genders), class: "drop-down" %>
           </div>
 
-          <div class="field">
-              <%= label_tag :gender %> :
-              <%= select_tag 'gender', options_for_select(wig_genders) %>
+          <div class="field right">
+              <%= label_tag "Material :" %> <br>
+              <%= select_tag 'material', options_for_select(wig_materials), class: "drop-down" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field left">
+              <%= label_tag "Construction :" %> <br>
+              <%= select_tag 'construction', options_for_select(wig_constructions), class: "drop-down" %>
           </div>
 
-          <div class="field">
-              <%= label_tag :material %> :
-              <%= select_tag 'material', options_for_select(wig_materials) %>
+          <div class="field right">
+              <%= label_tag "Condition :" %> <br>
+              <%= select_tag 'condition', options_for_select(wig_conditions), class: "drop-down" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field left">
+              <%= label_tag "Size :" %> <br>
+              <%= select_tag 'size', options_for_select(wig_sizes), class: "drop-down" %>
           </div>
 
-          <div class="field">
-              <%= label_tag :construction %> :
-              <%= select_tag 'construction', options_for_select(wig_constructions) %>
+          <div class="field right">
+              <%= label_tag "Texture :" %> <br>
+              <%= select_tag 'texture', options_for_select(wig_textures), class: "drop-down" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field left">
+              <%= label_tag "Style :" %> <br>
+              <%= select_tag 'style', options_for_select(wig_styles), class: "drop-down" %>
           </div>
 
-          <div class="field">
-              <%= label_tag :condition %> :
-              <%= select_tag 'condition', options_for_select(wig_conditions) %>
-          </div>
-
-          <div class="field">
-              <%= label_tag :retail_estimate %> :
+          <div class="field right">
+              <%= label_tag "Retail estimate :" %> <br>
               <%= text_field_tag :retail_estimate %>
           </div>
-
-          <div class="field">
-              <%= label_tag :size %> :
-              <%= select_tag 'size', options_for_select(wig_sizes)  %>
-          </div>
-
-          <div class="field">
-              <%= label_tag :texture %> :
-              <%= select_tag 'texture', options_for_select(wig_textures) %>
-          </div>
-
-          <div class="field">
-              <%= label_tag :style %> :
-              <%= select_tag 'style', options_for_select(wig_styles) %>
-          </div>
+        </div>
 
           <div class="actions"><%= submit_tag('submit') %></div>
 

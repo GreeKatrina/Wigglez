@@ -13,13 +13,17 @@
     width: 370px;
     margin: 0 5%;
   }
+  #post-wig {
+    width: 400px;
+    margin: 0 5%;
+  }
 }
 
 @media (min-width: $break-xsmall) {
   #sign-in {
     margin: 0 33%;
   }
-  #sign-up {
+  #sign-up, #post-wig {
     margin: 0 18%;
   }
 }
@@ -28,7 +32,7 @@
   #sign-in {
     margin: 0 38%;
   }
-  #sign-up {
+  #sign-up, #post-wig {
     margin: 0 25%;
   }
 }
@@ -37,7 +41,7 @@
   #sign-in {
     margin: 0 40%;
   }
-  #sign-up {
+  #sign-up, #post-wig {
     margin: 0 28%;
   }
 }
@@ -46,7 +50,7 @@
   #sign-in {
     margin: 0 42%;
   }
-  #sign-up {
+  #sign-up, #post-wig {
     margin: 0 30%;
   }
 }
@@ -55,17 +59,9 @@
   #sign-in {
     margin: 0 44.5%;
   }
-  #sign-up {
+  #sign-up, #post-wig {
     margin: 0 37%;
   }
-}
-
-.field {
-  margin: 0 0 2em 0;
-}
-
-#sign-up .field {
-  display: inline-block;
 }
 
 // Fix autofill chrome issue
@@ -125,6 +121,11 @@ input[type="submit"]:hover {
   margin-right: 100%;
   padding-left: 0.5em;
 }
+
+#sign-up .field {
+  display: inline-block;
+}
+
 #sign-up {
   .confirm-pass {
     margin-right: 0;
@@ -138,5 +139,43 @@ input[type="submit"]:hover {
   }
 }
 
+#post-wig {
+  label {
+    float: left;
+  }
+  select {
+    float: left;
+  }
+  input[type="text"] {
+    float: left;
+    width: 90%;
+  }
+}
 
+.field {
+  margin: 0 0 2em 0;
+}
 
+.form-row {
+  width: 100%;
+  display: block;
+  margin-bottom: 2em;
+}
+
+.form-row .left {
+  float: left;
+  width: 50%;
+}
+.form-row .right {
+  float: right;
+  width: 50%;
+}
+
+select {
+  text-transform: none;
+  padding: .5em .6em;
+  border-radius: 4px;
+  font-size: 90%;
+  vertical-align: baseline;
+  width: 90%;
+}
