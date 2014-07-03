@@ -6,12 +6,19 @@
   height: 100%;
 }
 
+.motto {
+  font-size: 1em;
+}
+
 @media (min-width: $break-zero) {
   .landing-page-content {
     margin: 20% 0 12.5% 0;
+    h1 {
+      font-size: 5em;
+    }
   }
 
-  header blockquote {
+  .motto {
     margin: 10% 0 15% 0;
   }
 
@@ -83,8 +90,10 @@
 @media (min-width: $break-small) {
   .landing-page-content {
     margin: 12.5% 0 15%;
+    h1 {
+      font-size: 6em;
+    }
   }
-
 }
 
 @media (min-width: $break-medium-small) {
@@ -93,7 +102,11 @@
     display: inline-block;
   }
 
-  header blockquote {
+  .landing-page-content h1 {
+    font-size: 7em;
+  }
+
+  .motto {
     margin: 9% 0 11% 0;
   }
 }
@@ -101,15 +114,21 @@
 @media (min-width: $break-medium-large) {
   .landing-page-content {
     margin: 12.5% 0 15%;
+    h1 {
+      font-size: 7em;
+    }
   }
 }
 
 @media (min-width: $break-large) {
   .landing-page-content {
     margin: 12.5% 0 12.5% 0;
+    h1 {
+      font-size: 8em;
+    }
   }
 
-  header blockquote {
+  .motto {
     margin: 8% 0 11% 0;
   }
 }
@@ -117,9 +136,12 @@
 @media (min-width: $break-xlarge) {
   .landing-page-content {
     margin: 10% 0 12.5% 0;
+    h1 {
+      font-size: 8em;
+    }
   }
 
-  header blockquote {
+  .motto {
     margin: 6% 0 8% 0;
   }
 }

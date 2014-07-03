@@ -10,8 +10,7 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.2'
 
 # Use Font-Awesome icons
-gem "font-awesome-rails"
-gem 'font-awesome-sass'
+gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 gem 'ionicons-rails'
 
 # Use Uglifier as compressor for JavaScript assets

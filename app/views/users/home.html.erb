@@ -1,3 +1,14 @@
-Home<br>
-<%= link_to "Log Out", log_out_path %>
-<%= link_to "Post A Wig", new_user_wig_path({ user_id: @user_id }) %>
+<% @page_title = "Home" %>
+
+<!-- NAV BAR -->
+<nav class="nav">
+  <ul class="nav-list">
+      <li><%= link_to "Profile", profile_path %></li>&nbsp;&nbsp;<span id="nav-line">|</span>&nbsp;
+      <li><%= link_to "Log Out", log_out_path %></li>&nbsp;&nbsp;<span id="nav-line">
+  </ul>
+</nav>
+
+<div class="wrapper">
+  <%= link_to "Post A Wig", new_user_wig_path({ user_id: @user_id }) %>
+  <%= link_to "Browse Wigs", wigs_path({ user_id: @user_id }) %>
+</div>

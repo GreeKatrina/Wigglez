@@ -10,7 +10,7 @@ body {
   background-image:url(../assets/graybgedit.png);
   color: $text-body-color;
   font-family: $body-font;
-  font-weight: 700;
+  font-weight: 400;
   text-align: center;
   box-sizing: border-box;
   width: 100%;
@@ -21,4 +21,16 @@ body {
 .wrapper {
   margin-top: 8em;
   width: 100%;
+}
+
+.caviar {
+  font-family: 'Caviar Dreams';
+}
+
+h1 {
+  color: $text-body-color;
+  font-size: 3em;
+  .name-red {
+    color: $nav-bg-color;
+  }
 }

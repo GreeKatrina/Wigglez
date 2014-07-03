@@ -66,10 +66,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    font-awesome-rails (4.1.0.0)
-      railties (>= 3.2, < 5.0)
-    font-awesome-sass (4.1.0)
-      sass (~> 3.2)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     hike (1.2.3)
     i18n (0.6.9)
     ionicons-rails (1.4.1.0)
@@ -185,8 +184,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails
-  font-awesome-rails
-  font-awesome-sass
+  font-awesome-sass-rails (~> 3.0.2.2)
   ionicons-rails
   jbuilder (~> 1.2)
   jquery-rails
