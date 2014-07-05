@@ -8,7 +8,7 @@ class WigsController < ApplicationController
   end
 
   def create
-    result = Wigglez::PostWig.new.run(wig_params[:wig], wig_params[:user_id])
+    result = Wigglez::PostWig.new.run(wig_params, session[:user_id])
     if result.succcess?
       @wig = result.wig
       redirect_to show_wig

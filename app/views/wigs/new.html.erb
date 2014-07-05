@@ -12,6 +12,10 @@
 <div class="wrapper">
     <h1>Post A Wig</h1>
 
+      <% if flash[:error] %>
+          <p class='flash'>error</p>
+      <% end %>
+
       <div class="form-wrapper" id="post-wig">
           <% flash.each do |name, msg| %>
               <%= content_tag :div, msg, class: name %>
