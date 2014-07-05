@@ -1,6 +1,9 @@
 Wigglez::Application.routes.draw do
   root :to => "sessions#new"
 
+  get 'contact_us', :to => 'static_pages#contact_us', :as => :contact_us
+  get 'about_us', :to => 'static_pages#about_us', :as => :about_us
+
   get 'sign_in', :to => 'sessions#sign_in', :as => :sign_in
   post 'sign_in', :to => 'sessions#sign_in_attempt', :as => :sign_in_attempt
   get 'sign_up', :to => 'sessions#sign_up', :as => :sign_up
