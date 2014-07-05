@@ -20,15 +20,6 @@ describe Wigglez::PostWig do
   end
 
   describe 'params' do
-    it "should have the not required params set to nil" do
-      result = @PostWig.run(@Wig, @User.id)
-      expect(result.success?).to eq true
-      expect(result.wig.tracking_number).to eq nil
-      expect(result.wig.receiver_id).to eq nil
-      expect(result.wig.date_picked).to eq nil
-      expect(result.wig.received).to eq nil
-    end
-
     it 'does not throw an error if an optional param is not set' do
       @Wig.delete(:retail_estimate)
       @Wig.delete(:construction)
