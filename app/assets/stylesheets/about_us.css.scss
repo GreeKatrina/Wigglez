@@ -1,0 +1,20 @@
+@import '_variables';
+
+.about-us-pic-div {
+  margin: 0 0 2em 0;
+}
+
+.about-us-pic {
+  width: 300px;
+}
+
+.about-us-content {
+  width: 40em;
+  margin: 0 auto 3em auto;
+  h1 {
+    font-size: 2em;
+    span {
+      font-size: .65em;
+    }
+  }
+}
