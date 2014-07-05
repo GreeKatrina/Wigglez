@@ -29,6 +29,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'activemodel', '~> 4.1.0'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'

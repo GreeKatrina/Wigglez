@@ -1,6 +1,6 @@
 module Wigglez
   class Wig
-    attr_reader :id, :donor_id, :receiver_id, :tracking_number, :received, :material, :color, :length, :gender, :retail_estimate, :date_picked, :condition, :construction, :size
+    attr_reader :id, :donor_id, :receiver_id, :tracking_number, :received, :material, :color, :length, :gender, :retail_estimate, :date_picked, :condition, :construction, :size, :style, :texture
 
     def initialize(attrs={})
       @id = attrs[:id]
@@ -17,6 +17,8 @@ module Wigglez
       @condition = attrs[:condition]
       @construction = attrs[:construction]
       @size = attrs[:size]
+      @style = attrs[:style]
+      @texture = attrs[:texture]
     end
   end
 end

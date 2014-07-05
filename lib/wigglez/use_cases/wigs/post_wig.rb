@@ -11,8 +11,9 @@ module Wigglez
         wig[param_name] = nil
       end
 
+      puts wig
       # put both of these in an array incase I want to add more to either later
-      optional_params = [:retail_estimate, :construction, :size]
+      optional_params = [:retail_estimate, :construction, :size, :style, :texture]
       for param_name in optional_params
         wig[param_name] = nil if !wig[param_name]
       end
