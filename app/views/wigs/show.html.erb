@@ -8,3 +8,33 @@
       <li><%= link_to "Log Out", log_out_path %></li>&nbsp;&nbsp;<span id="nav-line">
   </ul>
 </nav>
+
+<div class="wrapper">
+    <h2>You posted a wig!</h2>
+    <div class="new-wig">
+        <div class="wig-labels left">
+            <p>Color :</p>
+            <p>Length :</p>
+            <p>Gender :</p>
+            <p>Material :</p>
+            <p>Construction :</p>
+            <p>Condition :</p>
+            <p>Size :</p>
+            <p>Texture :</p>
+            <p>Style :</p>
+            <p>Retail estimate :</p>
+        </div>
+        <div class="new-wig-labels right">
+            <p><%= @wig.color %></p>
+            <p><%= @wig.length %></p>
+            <p><%= @wig.gender %></p>
+            <p><%= @wig.material %></p>
+            <p><%= @wig.construction %></p>
+            <p><%= @wig.condition %></p>
+            <p><%= @wig.size %></p>
+            <p><%= @wig.texture %></p>
+            <p><%= @wig.style %></p>
+            <p>$<%= @wig.retail_estimate %></p>
+        </div>
+    </div>
+</div>

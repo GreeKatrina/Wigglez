@@ -34,3 +34,20 @@ h1 {
     color: $nav-bg-color;
   }
 }
+
+.left {
+  width: 50%;
+  float: left;
+}
+.right {
+  width: 50%;
+  float: left;
+}
+
+.new-wig {
+  width: 300px;
+  margin: 0 auto 2em auto;
+  border: 1px solid $nav-bg-color;
+  border-radius: 4px;
+  overflow: hidden;
+}
