@@ -1,52 +1,52 @@
 @font-face {
   font-family: 'Caviar Dreams';
-  src: url('../fonts/CaviarDreams.eot');
-  src: url('../fonts/CaviarDreams.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/CaviarDreams.woff') format('woff'),
-       url('../fonts/CaviarDreams.ttf') format('truetype'),
-       url('../fonts/CaviarDreams.svg#webfont') format('svg');
+  src: font-url('CaviarDreams.eot');
+  src: font-url('CaviarDreams.eot?#iefix') format('embedded-opentype'),
+       font-url('CaviarDreams.woff') format('woff'),
+       font-url('CaviarDreams.ttf') format('truetype'),
+       font-url('CaviarDreams.svg#webfont') format('svg');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Caviar Dreams';
-  src: url('../fonts/CaviarDreams_Bold.eot');
-  src: url('../fonts/CaviarDreams_Bold.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/CaviarDreams_Bold.woff') format('woff'),
-       url('../fonts/CaviarDreams_Bold.ttf') format('truetype'),
-       url('../fonts/CaviarDreams_Bold.svg#webfont') format('svg');
+  src: font-url('CaviarDreams_Bold.eot');
+  src: font-url('CaviarDreams_Bold.eot?#iefix') format('embedded-opentype'),
+       font-url('CaviarDreams_Bold.woff') format('woff'),
+       font-url('CaviarDreams_Bold.ttf') format('truetype'),
+       font-url('CaviarDreams_Bold.svg#webfont') format('svg');
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'Caviar Dreams';
-  src: url('../fonts/CaviarDreams_BoldItalic.eot');
-  src: url('../fonts/CaviarDreams_BoldItalic.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/CaviarDreams_BoldItalic.woff') format('woff'),
-       url('../fonts/CaviarDreams_BoldItalic.ttf') format('truetype'),
-       url('../fonts/CaviarDreams_BoldItalic.svg#webfont') format('svg');
+  src: font-url('CaviarDreams_BoldItalic.eot');
+  src: font-url('CaviarDreams_BoldItalic.eot?#iefix') format('embedded-opentype'),
+       font-url('CaviarDreams_BoldItalic.woff') format('woff'),
+       font-url('CaviarDreams_BoldItalic.ttf') format('truetype'),
+       font-url('CaviarDreams_BoldItalic.svg#webfont') format('svg');
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: 'Caviar Dreams';
-  src: url('../fonts/CaviarDreams_Italic.eot');
-  src: url('../fonts/CaviarDreams_Italic.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/CaviarDreams_Italic.woff') format('woff'),
-       url('../fonts/CaviarDreams_Italic.ttf') format('truetype'),
-       url('../fonts/CaviarDreams_Italic.svg#webfont') format('svg');
+  src: font-url('CaviarDreams_Italic.eot');
+  src: font-url('CaviarDreams_Italic.eot?#iefix') format('embedded-opentype'),
+       font-url('CaviarDreams_Italic.woff') format('woff'),
+       font-url('CaviarDreams_Italic.ttf') format('truetype'),
+       font-url('CaviarDreams_Italic.svg#webfont') format('svg');
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: 'Campton';
-  src: url('../fonts/CamptonLightDEMO.otf');
+  src: font-url('Campton-LightDEMO.otf');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Campton';
-  src: url('../fonts/CamptonBoldDEMO.otf');
+  src: font-url('Campton-BoldDEMO.otf');
   font-weight: 700;
   font-style: normal;
 }

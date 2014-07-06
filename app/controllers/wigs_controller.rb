@@ -1,3 +1,5 @@
+require 'pry'
+
 class WigsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -9,6 +11,7 @@ class WigsController < ApplicationController
 
   def create
     result = Wigglez::PostWig.new.run(wig_params, session[:user_id])
+    binding.pry
     if result.succcess?
       @wig = result.wig
       redirect_to show_wig
