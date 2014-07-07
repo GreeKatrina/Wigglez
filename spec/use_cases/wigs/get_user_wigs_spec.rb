@@ -37,8 +37,8 @@ describe Wigglez::GetUserWigs do
       construction: 'monofilament',
       size: 'average'
     }
-    Wigglez::PostWig.new.run(@Wig, @Donor.id)
-    Wigglez::PostWig.new.run(@Wig3, @Receiver.id)
+    @Posted_wig = Wigglez::PostWig.new.run(@Wig, @Donor.id)
+    @Posted_wig2 = Wigglez::PostWig.new.run(@Wig3, @Receiver.id)
   end
 
   it "should get all of a user's wigs" do
@@ -71,6 +71,18 @@ describe Wigglez::GetUserWigs do
     expect(wigs.map &:gender).to include 'female'
     expect(wigs.map &:retail_estimate).to include 400
     expect(wigs.map &:retail_estimate).to_not include 600
+  end
+
+  it "should get a user's picked wigs that they have not received yet" do
+    posted_wig = Wigglez::PostWig.new.run(@Wig2, @Donor.id)
+    Wigglez::PickWig.new.run(posted_wig.wig.id, @Receiver.id)
+    Wigglez::PickWig.new.run(@Posted_wig.wig.id, @Receiver.id)
+    wigs = Wigglez::GetUserWigs.new.not_received(@Receiver.id)
+    expect(wigs.count).to eq 2
+
+    Wigglez.db.update_wig(posted_wig.wig.id, {received: true})
+    wigs = Wigglez::GetUserWigs.new.not_received(@Receiver.id)
+    expect(wigs.count).to eq 1
   end
 
   after(:each) do

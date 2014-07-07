@@ -16,7 +16,7 @@ module Wigglez
 
     def not_received(user_id)
       wigs = Wigglez.db.all_wigs
-      selected_wigs = wigs.select {|wig| wig.receiver_id == user_id && wig.received == nil}
+      selected_wigs = wigs.select {|wig| wig.receiver_id == user_id && !wig.received}
       return selected_wigs
     end
   end
