@@ -9,6 +9,54 @@
 </nav>
 
 <div class="wrapper">
-  <%= link_to "Post A Wig", new_user_wig_path({ user_id: @user_id }) %>
-  <%= link_to "Browse Wigs", wigs_path({ user_id: @user_id }) %>
+
+  <div class="one-third">
+    <%= link_to "Post A Wig", new_user_wig_path({ user_id: @user_id }) %><br><br>
+    <%= link_to "Browse Wigs", wigs_path({ user_id: @user_id }) %>
+  </div>
+
+  <div class="two-thirds home">
+    <div class="posted-not-picked">
+      <h2>Wigs you have posted that have not been picked yet:</h2>
+      <% if @not_picked_wigs == [] %>
+        <p>No wigs to display.</p>
+      <% else %>
+        <% @not_picked_wigs.each do |wig| %>
+          <table>
+            <tr><td>Color: </td><td><%= wig.color %></td></tr>
+            <tr><td>Length: </td><td><%= wig.length %></td></tr>
+            <tr><td>Gender: </td><td><%= wig.gender %></td></tr>
+            <tr><td>Material: </td><td><%= wig.material %></td></tr>
+            <tr><td>Construction: </td><td><%= wig.construction %></td></td>
+            <tr><td>Condition: </td><td><%= wig.condition %></td></tr>
+            <tr><td>Size: </td><td><%= wig.size %></td></tr>
+            <tr><td>Texture: </td><td><%= wig.texture %></td></tr>
+            <tr><td>Style: </td><td><%= wig.style %></td></tr>
+            <tr><td>Retail estimate: </td><td>$<%= wig.retail_estimate %></td></tr>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="picked-not-received">
+      <h2>Wigs you have picked that you have not received yet:</h2>
+      <% if @not_received_wigs == [] %>
+        <p>No wigs to display.</p>
+      <% else %>
+        <% @not_received_wigs.each do |wig| %>
+          <table>
+            <tr><td>Color: </td><td><%= wig.color %></td></tr>
+            <tr><td>Length: </td><td><%= wig.length %></td></tr>
+            <tr><td>Gender: </td><td><%= wig.gender %></td></tr>
+            <tr><td>Material: </td><td><%= wig.material %></td></tr>
+            <tr><td>Construction: </td><td><%= wig.construction %></td></td>
+            <tr><td>Condition: </td><td><%= wig.condition %></td></tr>
+            <tr><td>Size: </td><td><%= wig.size %></td></tr>
+            <tr><td>Texture: </td><td><%= wig.texture %></td></tr>
+            <tr><td>Style: </td><td><%= wig.style %></td></tr>
+            <tr><td>Retail estimate: </td><td>$<%= wig.retail_estimate %></td></tr>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -53,13 +53,7 @@ h1 {
   float: left;
 }
 
-.new-wig {
-  width: 300px;
-  margin: 0 auto 2em auto;
-  border: 1px solid $nav-bg-color;
-  border-radius: 4px;
-  overflow: hidden;
-}
+// Profile page
 
 .profile {
   width: 75%;
@@ -78,5 +72,35 @@ h1 {
     td {
       width: 50%;
     }
+  }
+}
+
+// Home page
+
+.home {
+  div {
+    padding-bottom: 1em;
+  }
+  h2 {
+    padding-bottom: 1em;
+  }
+  table {
+    margin: 0 auto;
+    padding: 1em;
+    border: 1px solid $nav-bg-color;
+    border-radius: 4px;
+  }
+}
+
+// Show wig view
+
+.new-wig {
+  width: 25%;
+  margin: 0 auto;
+  border: 1px solid $nav-bg-color;
+  border-radius: 4px;
+  table {
+    margin: 0 auto;
+    padding: 2em 0;
   }
 }
