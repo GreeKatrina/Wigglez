@@ -41,6 +41,14 @@ describe Wigglez::PickWig do
       expect(result.error).to eq :invalid_params
       expect(result.reasons).to eq :receiver => ["The receiver is not registered."]
     end
+
+    it "cannot pick a wig they posted" do
+      posted_wig = @PostWig.run(@Wig, @Receiver.id)
+      result = @PickWig.run(posted_wig.wig.id, @Receiver.id)
+      expect(result.success?).to eq false
+      expect(result.error).to eq :invalid_params
+      expect(result.reasons).to eq :receiver => ["You cannot pick your own wig."]
+    end
   end
 
   describe 'wig' do

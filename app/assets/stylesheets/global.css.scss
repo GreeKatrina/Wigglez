@@ -23,10 +23,6 @@ body {
   width: 100%;
 }
 
-.caviar {
-  font-family: 'Caviar Dreams';
-}
-
 h1 {
   color: $text-body-color;
   font-size: 3em;
@@ -51,6 +47,15 @@ h1 {
 .two-thirds {
   width: 66%;
   float: left;
+}
+
+.button {
+  border: 1px solid $nav-bg-color;
+  border-radius: 4px;
+  padding: 1.1em 1em 1em 1em;
+}
+.button:hover {
+  border: 1px solid $text-body-color;
 }
 
 // Profile page

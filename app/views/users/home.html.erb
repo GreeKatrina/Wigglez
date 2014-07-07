@@ -11,8 +11,8 @@
 <div class="wrapper">
 
   <div class="one-third">
-    <%= link_to "Post A Wig", new_user_wig_path({ user_id: @user_id }) %><br><br>
-    <%= link_to "Browse Wigs", wigs_path({ user_id: @user_id }) %>
+    <%= link_to "Post A Wig", new_user_wig_path({ user_id: @user_id }), class: "button" %><br><br><br><br>
+    <%= link_to "Browse Wigs", wigs_path({ user_id: @user_id }), class: "button" %>
   </div>
 
   <div class="two-thirds home">
