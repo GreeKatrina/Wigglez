@@ -8,14 +8,27 @@
   </ul>
 </nav>
 
-<div class="wrapper">
-  <div class="left">
+<div class="wrapper profile">
+  <div class="one-third">
     <h2><%= @user.name %></h2>
   </div>
-  <div class="right">
+  <div class="two-thirds">
     <h2>Donated Wigs</h2>
     <div class="donated-wigs">
-
+      <% @user_wigs.each do |wig| %>
+        <table>
+            <tr><td>Color: </td><td><%= wig.color %></td></tr>
+            <tr><td>Length: </td><td><%= wig.length %></td></tr>
+            <tr><td>Gender: </td><td><%= wig.gender %></td></tr>
+            <tr><td>Material: </td><td><%= wig.material %></td></tr>
+            <tr><td>Construction: </td><td><%= wig.construction %></td></td>
+            <tr><td>Condition: </td><td><%= wig.condition %></td></tr>
+            <tr><td>Size: </td><td><%= wig.size %></td></tr>
+            <tr><td>Texture: </td><td><%= wig.texture %></td></tr>
+            <tr><td>Style: </td><td><%= wig.style %></td></tr>
+            <tr><td>Retail estimate: </td><td><%= wig.retail_estimate %></td></tr>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

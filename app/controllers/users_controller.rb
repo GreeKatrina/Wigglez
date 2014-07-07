@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user_id = session[:user_id]
     @user = Wigglez.db.get_user(@user_id)
-    # @user_wigs = Wigglez::GetUserWigs.new(@user_id)
+    @user_wigs = Wigglez::GetUserWigs.new.run(@user.id)
     render 'profile'
   end
 

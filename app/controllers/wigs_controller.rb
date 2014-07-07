@@ -13,7 +13,6 @@ class WigsController < ApplicationController
     result = Wigglez::PostWig.new.run(wig_params, session[:user_id])
     if result.success?
       @wig = result.wig
-      binding.pry
       redirect_to show_wig_path(@wig.id)
     else
       flash[:error] = result.reasons

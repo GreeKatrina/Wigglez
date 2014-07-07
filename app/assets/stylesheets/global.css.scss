@@ -44,10 +44,39 @@ h1 {
   float: left;
 }
 
+.one-third {
+  width: 33%;
+  float: left;
+}
+.two-thirds {
+  width: 66%;
+  float: left;
+}
+
 .new-wig {
   width: 300px;
   margin: 0 auto 2em auto;
   border: 1px solid $nav-bg-color;
   border-radius: 4px;
   overflow: hidden;
+}
+
+.profile {
+  width: 75%;
+  margin: 8em auto 2em auto;
+}
+
+.donated-wigs {
+  padding: 0;
+  width: 100%;
+  table {
+    margin: 0 auto 2em auto;
+    width: 70%;
+    padding: 1em 10% 1em 20%;
+    border: 1px solid $nav-bg-color;
+    border-radius: 4px;
+    td {
+      width: 50%;
+    }
+  }
 }
