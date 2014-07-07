@@ -16,8 +16,8 @@
   </div>
 
   <div class="two-thirds home">
+    <h2>Wigs you have posted that have not been picked yet:</h2>
     <div class="posted-not-picked">
-      <h2>Wigs you have posted that have not been picked yet:</h2>
       <% if @not_picked_wigs == [] %>
         <p>No wigs to display.</p>
       <% else %>
@@ -37,8 +37,8 @@
         <% end %>
       <% end %>
     </div>
+    <h2>Wigs you have picked that you have not received yet:</h2>
     <div class="picked-not-received">
-      <h2>Wigs you have picked that you have not received yet:</h2>
       <% if @not_received_wigs == [] %>
         <p>No wigs to display.</p>
       <% else %>

@@ -15,6 +15,8 @@ Wigglez::Application.routes.draw do
 
   get 'wigs', :to => 'wigs#index', :as => :wigs
   get 'wigs/:id', :to => 'wigs#show', :as => :show_wig
+  get 'wigs/:id/posted', :to => 'wigs#posted', :as => :posted_wig
+  patch 'wigs/:id', :to => 'wigs#pick', :as => :pick_wig
 
   resources :users, :only => [:update, :destroy] do
     resources :wigs, :except => [:index, :show]

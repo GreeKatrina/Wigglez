@@ -3,8 +3,6 @@ require 'pry'
 class WigsController < ApplicationController
   before_filter :authenticate_user!
 
-  # @AR_Wig = Wigglez::Database::SQL::Wig
-
   def new
     render 'new'
   end
@@ -13,7 +11,7 @@ class WigsController < ApplicationController
     result = Wigglez::PostWig.new.run(wig_params, session[:user_id])
     if result.success?
       @wig = result.wig
-      redirect_to show_wig_path(@wig.id)
+      redirect_to posted_wig_path(@wig.id)
     else
       flash[:error] = result.reasons
       render 'new'
@@ -21,12 +19,17 @@ class WigsController < ApplicationController
   end
 
   def index
-    # @wigs = @AR_Wig.order(created_at: :desc).page params[:page]
+    @wigs = Wigglez.db.all_ar_wigs.order(created_at: :desc, ).page params[:page]
   end
 
   def show
     @wig = Wigglez.db.get_wig(params[:id])
     render 'show'
+  end
+
+  def posted
+    @wig = Wigglez.db.get_wig(params[:id])
+    render 'posted'
   end
 
   def edit
@@ -35,6 +38,17 @@ class WigsController < ApplicationController
 
   def update
     redirect_to show_wig
+  end
+
+  def pick
+    result = Wigglez::PickWig.new.run(params[:id], session[:user_id])
+    if result.success?
+      @wig = result.wig
+      redirect_to root_url
+    else
+      flash[:error] = result.reasons
+      render 'show'
+    end
   end
 
   def destroy

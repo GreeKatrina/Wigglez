@@ -1,0 +1,106 @@
+<!-- NAV BAR -->
+<nav class="nav">
+  <ul class="nav-list">
+      <li><%= link_to "Home", root_path %></li>&nbsp;&nbsp;<span id="nav-line">|</span>&nbsp;
+      <li><%= link_to "Profile", profile_path %></li>&nbsp;&nbsp;<span id="nav-line">|</span>&nbsp;
+      <li><%= link_to "Log Out", log_out_path %></li>&nbsp;&nbsp;<span id="nav-line">
+  </ul>
+</nav>
+
+<div class="wrapper">
+  <div class="search-form">
+    <%= radio_button_tag(:color, "medium brown")%>
+    <%=label_tag("medium brown", "medium brown")%>
+    <%= radio_button_tag(:color, "light brown")%>
+    <%=label_tag("light brown", "light brown")%>
+    <%= radio_button_tag(:color, "dark brown")%>
+    <%=label_tag("dark brown", "dark brown")%>
+    <%= radio_button_tag(:color, "black")%>
+    <%=label_tag("black", "black")%>
+    <%= radio_button_tag(:color, "blonde")%>
+    <%=label_tag("blonde", "blonde")%>
+    <%= radio_button_tag(:color, "red")%>
+    <%=label_tag("red", "red")%>
+    <%= radio_button_tag(:color, "white")%>
+    <%=label_tag("white", "white")%>
+    <%= radio_button_tag(:color, "grey")%>
+    <%=label_tag("grey", "grey")%>
+    <%= radio_button_tag(:color, "other")%>
+    <%=label_tag("other", "other")%>
+
+    <%= radio_button_tag(:length, "medium")%>
+    <%=label_tag("medium", "medium")%>
+    <%= radio_button_tag(:length, "long")%>
+    <%=label_tag("long", "long")%>
+    <%= radio_button_tag(:length, "medium/long")%>
+    <%=label_tag("medium/long", "medium/long")%>
+    <%= radio_button_tag(:length, "medium/short")%>
+    <%=label_tag("medium/short", "medium/short")%>
+    <%= radio_button_tag(:length, "short")%>
+    <%=label_tag("short", "short")%>
+
+    <%= radio_button_tag(:gender, "female")%>
+    <%=label_tag("female", "female")%>
+    <%= radio_button_tag(:gender, "male")%>
+    <%=label_tag("male", "male")%>
+
+    <%= radio_button_tag(:material, "synthetic")%>
+    <%=label_tag("synthetic", "synthetic")%>
+    <%= radio_button_tag(:material, "human hair")%>
+    <%=label_tag("human hair", "human hair")%>
+
+    <%= radio_button_tag(:construction, "basic cap")%>
+    <%=label_tag("basic cap", "basic cap")%>
+    <%= radio_button_tag(:construction, "hand tied")%>
+    <%=label_tag("hand tied", "hand tied")%>
+    <%= radio_button_tag(:construction, "monofilament")%>
+    <%=label_tag("monofilament", "monofilament")%>
+    <%= radio_button_tag(:construction, "lace front")%>
+    <%=label_tag("lace front", "lace front")%>
+
+    <%= radio_button_tag(:condition, "new")%>
+    <%=label_tag("new", "new")%>
+    <%= radio_button_tag(:condition, "lightly used")%>
+    <%=label_tag("lightly used", "lightly used")%>
+    <%= radio_button_tag(:condition, "fair")%>
+    <%=label_tag("fair", "fair")%>
+    <%= radio_button_tag(:condition, "poor")%>
+    <%=label_tag("poor", "poor")%>
+
+    <%= radio_button_tag(:size, "average")%>
+    <%=label_tag("average", "average")%>
+    <%= radio_button_tag(:size, "large")%>
+    <%=label_tag("large", "large")%>
+    <%= radio_button_tag(:size, "average/large")%>
+    <%=label_tag("average/large", "average/large")%>
+    <%= radio_button_tag(:size, "average/petite")%>
+    <%=label_tag("average/petite", "average/petite")%>
+    <%= radio_button_tag(:size, "petite")%>
+    <%=label_tag("petite", "petite")%>
+
+    <%= radio_button_tag(:texture, "straight")%>
+    <%=label_tag("straight", "straight")%>
+    <%= radio_button_tag(:texture, "curly")%>
+    <%=label_tag("curly", "curly")%>
+    <%= radio_button_tag(:texture, "wavy")%>
+    <%=label_tag("wavy", "wavy")%>
+  </div>
+  <div class="browse-wigs">
+    <% @wigs.each do |wig| %>
+      <%= link_to "Pick Wig", pick_wig_path(wig.id), class: "button" %>
+      <table>
+        <tr><td>Color: </td><td><%= wig.color %></td></tr>
+        <tr><td>Length: </td><td><%= wig.length %></td></tr>
+        <tr><td>Gender: </td><td><%= wig.gender %></td></tr>
+        <tr><td>Material: </td><td><%= wig.material %></td></tr>
+        <tr><td>Construction: </td><td><%= wig.construction %></td></td>
+        <tr><td>Condition: </td><td><%= wig.condition %></td></tr>
+        <tr><td>Size: </td><td><%= wig.size %></td></tr>
+        <tr><td>Texture: </td><td><%= wig.texture %></td></tr>
+        <tr><td>Style: </td><td><%= wig.style %></td></tr>
+        <tr><td>Retail estimate: </td><td>$<%= wig.retail_estimate %></td></tr>
+      </table>
+    <% end %>
+  </div>
+  <%= paginate @wigs %>
+</div>

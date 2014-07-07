@@ -1,3 +1,5 @@
+<% @page_title = "You Posted A Wig!" %>
+
 <!-- NAV BAR -->
 <nav class="nav">
   <ul class="nav-list">
@@ -8,12 +10,7 @@
 </nav>
 
 <div class="wrapper">
-    <h2>Pick this wig!</h2>
-    <% if flash[:error] %>
-      <% flash[:error].each do |error| %>
-        <p class="flash"><%= error %></p>
-      <% end %>
-    <% end %>
+    <h2>You posted a wig!</h2>
     <div class="new-wig">
       <table>
         <tr><td>Color: </td><td><%= @wig.color %></td></tr>
@@ -28,5 +25,4 @@
         <tr><td>Retail estimate: </td><td>$<%= @wig.retail_estimate %></td></tr>
       </table>
     </div>
-    <%= link_to "Pick Wig", pick_wig_path(@wig.id), class: "button" %>
 </div>

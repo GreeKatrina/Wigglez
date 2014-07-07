@@ -16,6 +16,7 @@ module Wigglez
       end
 
       class Wig < ActiveRecord::Base
+        paginates_per 2
         belongs_to :donor, :class_name => "User"
         belongs_to :receiver, :class_name => "User"
       end
@@ -79,6 +80,10 @@ module Wigglez
         wigs.map do |w|
           w = Wigglez::Wig.new(w)
         end
+      end
+
+      def all_ar_wigs
+        Wig.all
       end
 
       def delete_wig(id)

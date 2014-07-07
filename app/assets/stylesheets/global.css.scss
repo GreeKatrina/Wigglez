@@ -85,15 +85,21 @@ h1 {
 .home {
   div {
     padding-bottom: 1em;
+    width: 50%;
+    margin: 0 auto;
   }
   h2 {
     padding-bottom: 1em;
   }
   table {
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     padding: 1em;
     border: 1px solid $nav-bg-color;
     border-radius: 4px;
+    width: 90%;
+    td {
+      width: 50%;
+    }
   }
 }
 
@@ -101,11 +107,33 @@ h1 {
 
 .new-wig {
   width: 25%;
-  margin: 0 auto;
+  margin: 0 auto 3em auto;
   border: 1px solid $nav-bg-color;
   border-radius: 4px;
   table {
     margin: 0 auto;
     padding: 2em 0;
+  }
+}
+
+// Browse wigs
+
+.browse-wigs {
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  .button {
+    float: left;
+    margin: 12.5% 5% 0 5%;
+  }
+  table {
+    margin: 0 0 2em 0;
+    padding: 1em;
+    border: 1px solid $nav-bg-color;
+    border-radius: 4px;
+    width: 50%;
+    td {
+      width: 50%;
+    }
   }
 }
