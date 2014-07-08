@@ -18,6 +18,18 @@ body {
   margin: 0;
 }
 
+.clearfix:before,
+.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after {
+  clear:both;
+}
+.clearfix {
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
 .wrapper {
   margin-top: 8em;
   width: 100%;
@@ -122,6 +134,7 @@ h1 {
   width: 50%;
   margin: 0 auto;
   padding-bottom: 1em;
+  display: block;
   .button {
     float: left;
     margin: 12.5% 5% 0 5%;
@@ -134,6 +147,29 @@ h1 {
     width: 50%;
     td {
       width: 50%;
+    }
+  }
+}
+
+.search-form {
+  width: 63%;
+  display: block;
+  margin: -2em auto 4em auto;
+  padding: 1em 1em 2em 1em;
+  border: 1px solid $text-body-color;
+  border-radius: 4px;
+  .search-title {
+    color: $nav-bg-color;
+  }
+  .search {
+    float: left;
+    padding: 0.5em 1em 0 1em;
+  }
+  .search-button-wrapper {
+    display: table;
+    .search-button {
+      display: table-cell;
+      padding: 4em 0 0 4em;
     }
   }
 }

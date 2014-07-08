@@ -9,81 +9,127 @@
 
 <div class="wrapper">
   <div class="search-form">
-    <%= radio_button_tag(:color, "medium brown")%>
-    <%=label_tag("medium brown", "medium brown")%>
-    <%= radio_button_tag(:color, "light brown")%>
-    <%=label_tag("light brown", "light brown")%>
-    <%= radio_button_tag(:color, "dark brown")%>
-    <%=label_tag("dark brown", "dark brown")%>
-    <%= radio_button_tag(:color, "black")%>
-    <%=label_tag("black", "black")%>
-    <%= radio_button_tag(:color, "blonde")%>
-    <%=label_tag("blonde", "blonde")%>
-    <%= radio_button_tag(:color, "red")%>
-    <%=label_tag("red", "red")%>
-    <%= radio_button_tag(:color, "white")%>
-    <%=label_tag("white", "white")%>
-    <%= radio_button_tag(:color, "grey")%>
-    <%=label_tag("grey", "grey")%>
-    <%= radio_button_tag(:color, "other")%>
-    <%=label_tag("other", "other")%>
 
-    <%= radio_button_tag(:length, "medium")%>
-    <%=label_tag("medium", "medium")%>
-    <%= radio_button_tag(:length, "long")%>
-    <%=label_tag("long", "long")%>
-    <%= radio_button_tag(:length, "medium/long")%>
-    <%=label_tag("medium/long", "medium/long")%>
-    <%= radio_button_tag(:length, "medium/short")%>
-    <%=label_tag("medium/short", "medium/short")%>
-    <%= radio_button_tag(:length, "short")%>
-    <%=label_tag("short", "short")%>
+    <div class="search-top clearfix">
+      <div class="search color">
+        <table>
+          <tr><td class="search-title">Color :</td></tr>
+          <tr>
+            <td><%= radio_button_tag(:color, "light brown")%><%=label_tag("light brown", "light brown")%></td>
+            <td><%= radio_button_tag(:color, "medium brown")%><%=label_tag("medium brown", "medium brown")%></td>
+          </tr>
+          <tr>
+            <td><%= radio_button_tag(:color, "dark brown")%><%=label_tag("dark brown", "dark brown")%></td>
+            <td><%= radio_button_tag(:color, "black")%><%=label_tag("black", "black")%></td>
+          </tr>
+          <tr>
+            <td><%= radio_button_tag(:color, "blonde")%><%=label_tag("blonde", "blonde")%></td>
+            <td><%= radio_button_tag(:color, "red")%><%=label_tag("red", "red")%></td>
+          </tr>
+          <tr>
+            <td><%= radio_button_tag(:color, "white")%><%=label_tag("white", "white")%></td>
+            <td><%= radio_button_tag(:color, "grey")%><%=label_tag("grey", "grey")%></td>
+          </tr>
+          <tr><td><%= radio_button_tag(:color, "other")%><%=label_tag("other", "other")%></td></tr>
+        </table>
+      </div>
 
-    <%= radio_button_tag(:gender, "female")%>
-    <%=label_tag("female", "female")%>
-    <%= radio_button_tag(:gender, "male")%>
-    <%=label_tag("male", "male")%>
+      <div class="search length">
+        <table>
+          <tr><td class="search-title">Length :</td></tr>
+          <tr><td><%= radio_button_tag(:length, "long")%><%=label_tag("long", "long")%></td></tr>
+          <tr><td><%= radio_button_tag(:length, "medium/long")%><%=label_tag("medium/long", "medium/long")%></td></tr>
+          <tr><td><%= radio_button_tag(:length, "medium")%><%=label_tag("medium", "medium")%></td></tr>
+          <tr><td><%= radio_button_tag(:length, "medium/short")%><%=label_tag("medium/short", "medium/short")%></td></tr>
+          <tr><td><%= radio_button_tag(:length, "short")%><%=label_tag("short", "short")%></td></tr>
+        </table>
+      </div>
 
-    <%= radio_button_tag(:material, "synthetic")%>
-    <%=label_tag("synthetic", "synthetic")%>
-    <%= radio_button_tag(:material, "human hair")%>
-    <%=label_tag("human hair", "human hair")%>
+       <div class="search size">
+        <table>
+          <tr><td class="search-title">Size :</td></tr>
+          <tr><td><%= radio_button_tag(:size, "average")%><%=label_tag("average", "average")%></td></tr>
+          <tr><td><%= radio_button_tag(:size, "large")%><%=label_tag("large", "large")%></td></tr>
+          <tr><td><%= radio_button_tag(:size, "average/large")%><%=label_tag("average/large", "average/large")%></td></tr>
+          <tr><td><%= radio_button_tag(:size, "average/petite")%><%=label_tag("average/petite", "average/petite")%></td></tr>
+          <tr><td><%= radio_button_tag(:size, "petite")%><%=label_tag("petite", "petite")%></td></tr>
+        </table>
+      </div>
 
-    <%= radio_button_tag(:construction, "basic cap")%>
-    <%=label_tag("basic cap", "basic cap")%>
-    <%= radio_button_tag(:construction, "hand tied")%>
-    <%=label_tag("hand tied", "hand tied")%>
-    <%= radio_button_tag(:construction, "monofilament")%>
-    <%=label_tag("monofilament", "monofilament")%>
-    <%= radio_button_tag(:construction, "lace front")%>
-    <%=label_tag("lace front", "lace front")%>
+      <div class="search retail-estimate">
+        <table>
+          <tr><td class="search-title">Retail estimate :</td></tr>
+          <tr><td><%= radio_button_tag(:retail_estimate, "level_one")%><%=label_tag("level_one", "$0-$75")%></td></tr>
+          <tr><td><%= radio_button_tag(:retail_estimate, "level_two")%><%=label_tag("level_two", "$75-$250")%></td></tr>
+          <tr><td><%= radio_button_tag(:retail_estimate, "level_three")%><%=label_tag("level_three", "$250-$750")%></td></tr>
+          <tr><td><%= radio_button_tag(:retail_estimate, "level_four")%><%=label_tag("level_four", "$750-$2,000")%></td></tr>
+          <tr><td><%= radio_button_tag(:retail_estimate, "level_five")%><%=label_tag("level_five", "$2,000+")%></td></tr>
+        </table>
+      </div>
 
-    <%= radio_button_tag(:condition, "new")%>
-    <%=label_tag("new", "new")%>
-    <%= radio_button_tag(:condition, "lightly used")%>
-    <%=label_tag("lightly used", "lightly used")%>
-    <%= radio_button_tag(:condition, "fair")%>
-    <%=label_tag("fair", "fair")%>
-    <%= radio_button_tag(:condition, "poor")%>
-    <%=label_tag("poor", "poor")%>
+      <div class="search style">
+        <table>
+          <tr><td class="search-title">Style :</td></tr>
+          <tr><td><%= radio_button_tag(:style, "bangs")%><%= label_tag("bangs", "bangs")%></td></tr>
+          <tr><td><%= radio_button_tag(:style, "layered")%><%= label_tag("layered", "layered")%></td></tr>
+          <tr><td><%= radio_button_tag(:style, "pixie")%><%= label_tag("pixie", "pixie")%></td></tr>
+          <tr><td><%= radio_button_tag(:style, "bobs")%><%= label_tag("bobs", "bobs")%></td></tr>
+        </table>
+      </div>
+    </div>
 
-    <%= radio_button_tag(:size, "average")%>
-    <%=label_tag("average", "average")%>
-    <%= radio_button_tag(:size, "large")%>
-    <%=label_tag("large", "large")%>
-    <%= radio_button_tag(:size, "average/large")%>
-    <%=label_tag("average/large", "average/large")%>
-    <%= radio_button_tag(:size, "average/petite")%>
-    <%=label_tag("average/petite", "average/petite")%>
-    <%= radio_button_tag(:size, "petite")%>
-    <%=label_tag("petite", "petite")%>
+    <div class="search-bottom clearfix">
+      <div class="search construction">
+        <table>
+          <tr><td class="search-title">Construction :</td></tr>
+          <tr><td><%= radio_button_tag(:construction, "basic cap")%><%=label_tag("basic cap", "basic cap")%></td></tr>
+          <tr><td><%= radio_button_tag(:construction, "hand tied")%><%=label_tag("hand tied", "hand tied")%></td></tr>
+          <tr><td><%= radio_button_tag(:construction, "monofilament")%><%=label_tag("monofilament", "monofilament")%></td></tr>
+          <tr><td><%= radio_button_tag(:construction, "lace front")%><%=label_tag("lace front", "lace front")%></td></tr>
+        </table>
+      </div>
 
-    <%= radio_button_tag(:texture, "straight")%>
-    <%=label_tag("straight", "straight")%>
-    <%= radio_button_tag(:texture, "curly")%>
-    <%=label_tag("curly", "curly")%>
-    <%= radio_button_tag(:texture, "wavy")%>
-    <%=label_tag("wavy", "wavy")%>
+      <div class="search condition">
+        <table>
+          <tr><td class="search-title">Condition :</td></tr>
+          <tr><td><%= radio_button_tag(:condition, "new")%><%=label_tag("new", "new")%></td></tr>
+          <tr><td><%= radio_button_tag(:condition, "lightly used")%><%=label_tag("lightly used", "lightly used")%></td></tr>
+          <tr><td><%= radio_button_tag(:condition, "fair")%><%=label_tag("fair", "fair")%></td></tr>
+          <tr><td><%= radio_button_tag(:condition, "poor")%><%=label_tag("poor", "poor")%></td></tr>
+        </table>
+      </div>
+
+      <div class="search texture">
+        <table>
+          <tr><td class="search-title">Texture :</td></tr>
+          <tr><td><%= radio_button_tag(:texture, "straight")%><%=label_tag("straight", "straight")%></td></tr>
+          <tr><td><%= radio_button_tag(:texture, "curly")%><%=label_tag("curly", "curly")%></td></tr>
+          <tr><td><%= radio_button_tag(:texture, "wavy")%><%=label_tag("wavy", "wavy")%></td></tr>
+        </table>
+      </div>
+
+      <div class="search gender">
+        <table>
+          <tr><td class="search-title">Gender :</td></tr>
+          <tr><td><%= radio_button_tag(:gender, "female")%><%=label_tag("female", "female")%></td></tr>
+          <tr><td><%= radio_button_tag(:gender, "male")%><%=label_tag("male", "male")%></td></tr>
+        </table>
+      </div>
+
+      <div class="search material">
+        <table>
+          <tr><td class="search-title">Material :</td></tr>
+          <tr><td><%= radio_button_tag(:material, "synthetic")%><%=label_tag("synthetic", "synthetic")%></td></tr>
+          <tr><td><%= radio_button_tag(:material, "human hair")%><%=label_tag("human hair", "human hair")%></td></tr>
+        </table>
+      </div>
+
+      <div class="search-button-wrapper">
+        <div class="search-button">
+          <%= link_to "Search", wigs_path({ user_id: @user_id }), class: "button" %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="browse-wigs">
     <% @wigs.each do |wig| %>

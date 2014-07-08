@@ -16,7 +16,7 @@ module Wigglez
       end
 
       class Wig < ActiveRecord::Base
-        paginates_per 2
+        paginates_per 10
         belongs_to :donor, :class_name => "User"
         belongs_to :receiver, :class_name => "User"
       end
