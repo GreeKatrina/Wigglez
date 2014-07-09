@@ -1,5 +1,4 @@
 require 'pg'
-require 'pry-byebug'
 
 module Wigglez
   module Database

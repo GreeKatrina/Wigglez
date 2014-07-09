@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'rails_helper'
-require 'pry-byebug'
 
 describe Wigglez::SignUp do
   before(:each) do
