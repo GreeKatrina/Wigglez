@@ -1,5 +1,3 @@
-require 'pry'
-
 class SessionsController < ApplicationController
 
   before_filter :authenticate_user!, only: [:destroy]

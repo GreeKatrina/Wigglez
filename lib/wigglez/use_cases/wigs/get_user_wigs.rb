@@ -1,5 +1,3 @@
-require 'pry'
-
 module Wigglez
   class GetUserWigs
     def run(user_id)

@@ -1,5 +1,3 @@
-require 'pry'
-
 class WigsController < ApplicationController
   before_filter :authenticate_user!
 
