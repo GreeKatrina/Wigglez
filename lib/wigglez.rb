@@ -1,4 +1,3 @@
-require 'pry-byebug'
 require 'active_record'
 require 'paperclip'
 
