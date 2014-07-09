@@ -1,1 +1,1 @@
-require_relative '../../../wigglez/lib/wigglez.rb'
+require_relative '../../lib/wigglez.rb'
