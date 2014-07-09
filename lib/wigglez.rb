@@ -1,5 +1,6 @@
 require 'pry-byebug'
 require 'active_record'
+require 'paperclip'
 
 module Wigglez
   def self.db

@@ -15,7 +15,7 @@
 <div class="wrapper">
     <h1>Sign Up</h1>
     <div class="form-wrapper" id="sign-up">
-        <%= form_tag(sign_up_attempt_path, method: 'post') do %>
+        <%= form_tag(sign_up_attempt_path, method: 'post', :multipart => true) do %>
 
             <!-- Check if name format is correct -->
             <% if flash[:error] && flash[:error][:name] %>
@@ -51,6 +51,10 @@
             <div class="field">
                 <%= label_tag :password_confirmation, 'Confirm Password:', class: "confirm-pass" %><br>
                 <%= password_field_tag :password_confirmation %>
+            </div>
+
+            <div class="field">
+                <%= file_field_tag :avatar %>
             </div>
 
             <div class="actions"><%= submit_tag('submit') %></div>

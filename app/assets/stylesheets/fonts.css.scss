@@ -1,4 +1,15 @@
 @font-face {
+  font-family: 'GeometriaLight';
+  src: font-url('Geometria-Light.eot');
+  src: font-url('Geometria-Light.eot?#iefix') format('embedded-opentype'),
+       font-url('Geometria-Light.woff') format('woff'),
+       font-url('Geometria-Light.ttf') format('truetype'),
+       font-url('Geometria-Light.svg#Geometria-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Caviar Dreams';
   src: font-url('CaviarDreams.eot');
   src: font-url('CaviarDreams.eot?#iefix') format('embedded-opentype'),

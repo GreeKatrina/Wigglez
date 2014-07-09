@@ -13,12 +13,15 @@ module Wigglez
 
       class User < ActiveRecord::Base
         has_many :wigs
+        has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+        validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
       end
 
       class Wig < ActiveRecord::Base
         paginates_per 10
         belongs_to :donor, :class_name => "User"
         belongs_to :receiver, :class_name => "User"
+        has_attached_file :picture
       end
 
       class Session < ActiveRecord::Base
@@ -26,14 +29,16 @@ module Wigglez
       end
 
       def create_user(attrs)
-        new_user = User.create(attrs)
+        new_user = User.create!(attrs)
         Wigglez::User.new(new_user)
       end
 
       def get_user(id)
         if User.exists?(id)
           new_user = User.find(id)
-          Wigglez::User.new(new_user)
+          attrs = new_user.attributes.symbolize_keys
+          attrs[:avatar] = new_user.avatar
+          Wigglez::User.new(attrs)
         end
       end
 

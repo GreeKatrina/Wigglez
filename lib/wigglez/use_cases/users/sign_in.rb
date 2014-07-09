@@ -11,6 +11,7 @@ module Wigglez
         validates_presence_of :password
       end
 
+
       if !result.valid?
         return failure(:invalid_params, :reasons => result.errors.messages)
       end

@@ -31,8 +31,9 @@ gem 'activemodel', '~> 4.1.0'
 
 gem 'kaminari'
 
+gem "paperclip", "~> 4.1"
+
 group :development, :test do
-  gem 'spring'
   gem 'pry-rails'
   gem 'factory_girl_rails', :require => false
   gem 'pry-byebug'

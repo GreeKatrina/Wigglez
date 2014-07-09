@@ -1,3 +1,5 @@
+require 'pry'
+
 class SessionsController < ApplicationController
 
   before_filter :authenticate_user!, only: [:destroy]
@@ -36,6 +38,7 @@ class SessionsController < ApplicationController
   end
 
   def sign_up_attempt
+    # binding.pry
     result = Wigglez::SignUp.new.run(user_params)
     if result.success?
       session[:user_id] = result.user.id
@@ -56,7 +59,7 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password, :password_confirmation)
+    params.permit(:name, :email, :password, :password_confirmation, :avatar)
   end
 
 end

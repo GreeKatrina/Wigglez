@@ -30,4 +30,7 @@ Wigglez::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Helps Paperclip find ImageMagick
+  Paperclip.options[:command_path] = "/usr/bin/"
 end

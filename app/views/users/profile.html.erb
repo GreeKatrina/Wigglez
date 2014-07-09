@@ -11,6 +11,7 @@
 <div class="wrapper profile">
   <div class="one-third">
     <h2><%= @user.name %></h2>
+    <%= image_tag @user.avatar.url(:thumb) %>
   </div>
   <div class="two-thirds">
     <h2>Donated Wigs</h2>
