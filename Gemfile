@@ -33,6 +33,9 @@ gem 'kaminari'
 
 gem "paperclip", "~> 4.1"
 
+# For Heroku
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'pry-rails'
   gem 'factory_girl_rails', :require => false
