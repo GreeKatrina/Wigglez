@@ -12,12 +12,6 @@ module Wigglez
         validates :password, :presence => true, length: { in: 6..20 }, confirmation: true
         validates_presence_of :email
         validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
-        validates_presence_of :avatar
-        # validates_inclusion_of :avatar_content_type, :in => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-        # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-        # validates_attachment_content_type :avatar, :content_type => /\Aimage/
-        # validates_attachment_size :avatar, :less_than => 5.megabytes
       end
 
       if !result.valid?

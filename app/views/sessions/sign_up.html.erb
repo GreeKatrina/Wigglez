@@ -17,43 +17,46 @@
     <div class="form-wrapper" id="sign-up">
         <%= form_tag(sign_up_attempt_path, method: 'post', :multipart => true) do %>
 
-            <!-- Check if name format is correct -->
-            <% if flash[:error] && flash[:error][:name] %>
-                <p class='flash'>name <%=h flash[:error][:name][0] %></p>
-            <% end %>
+            <div class="flash-wrapper">
+                <% if flash[:error] && flash[:error][:name] %>
+                    <p class='flash'><span class="asterisk">*</span>name <%=h flash[:error][:name][0] %></p>
+                <% end %>
+                <% if flash[:error] && flash[:error][:email] %>
+                    <p class='flash'><span class="asterisk">*</span>email <%=h flash[:error][:email][0] %></p>
+                <% end %>
+            </div>
+
             <div class="field">
                 <%= label_tag :name %><br>
                 <%= text_field_tag :name %>
             </div>
 
-            <!-- Check if email is already taken or if format is correct -->
-            <% if flash[:error] && flash[:error][:email] %>
-                <p class='flash'>email <%=h flash[:error][:email][0] %></p>
-            <% end %>
             <div class="field">
                 <%= label_tag :email %><br>
                 <%= text_field_tag :email %>
             </div>
 
-            <!-- Check if password format is correct -->
-            <% if flash[:error] && flash[:error][:password] %>
-                <p class='flash'>password <%=h flash[:error][:password][0] %></p>
-            <% end %>
+            <div class="flash-wrapper">
+                <% if flash[:error] && flash[:error][:password] %>
+                    <p class='flash'><span class="asterisk">*</span>password <%=h flash[:error][:password][0] %></p>
+                <% end %>
+                <% if flash[:error] && flash[:error][:password_confirmation] %><br>
+                    <p class='flash'><span class="asterisk">*</span>password confirmation <%=h flash[:error][:password_confirmation][0] %></p>
+                <% end %>
+            </div>
+
             <div class="field">
                 <%= label_tag :password, "Password:" , class: "pass" %><br>
                 <%= password_field_tag :password %>
             </div>
 
-            <!-- Check if both passwords match -->
-            <% if flash[:error] && flash[:error][:password_confirmation] %><br>
-                <p class='flash'>password confirmation <%=h flash[:error][:password_confirmation][0] %></p>
-            <% end %>
             <div class="field">
-                <%= label_tag :password_confirmation, 'Confirm Password:', class: "confirm-pass" %><br>
+                <%= label_tag :password_confirmation, 'Confirm Password:', class: "long-label confirm-pass" %><br>
                 <%= password_field_tag :password_confirmation %>
             </div>
 
             <div class="field">
+                <%= label_tag :avatar, 'Accepted formats: .jpg, .jpeg, .png, .gif', class: "long-label" %>
                 <%= file_field_tag :avatar %>
             </div>
 

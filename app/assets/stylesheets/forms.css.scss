@@ -4,6 +4,15 @@
   margin: 0 0 1.5em 0;
 }
 
+.flash-wrapper {
+  display: block;
+  color: $nav-bg-color;
+}
+
+.asterisk {
+  color: $text-body-color;
+}
+
 @media (min-width: $break-zero){
   #sign-in {
     width: 170px;
@@ -127,8 +136,10 @@ input[type="submit"]:hover {
 }
 
 #sign-up {
-  .confirm-pass {
+  .long-label {
     margin-right: 0;
+  }
+  .confirm-pass {
     padding-right: 1em;
   }
   .pass {
