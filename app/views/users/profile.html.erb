@@ -10,25 +10,33 @@
 
 <div class="wrapper profile">
   <div class="one-third">
-    <h2><%= @user.name %></h2>
-    <%= image_tag @user.avatar.url(:thumb) %>
+    <h2>Name: <%= @user.name %></h2>
+      <% if @user.avatar.url == "/avatars/original/missing.png" %>
+        <%= image_tag "missing.png", :size => "118x118", class: 'missing' %>
+      <% else %>
+        <%= image_tag @user.avatar.url, :size => "150x150" %>
+      <% end %>
   </div>
   <div class="two-thirds">
     <h2>Donated Wigs</h2>
     <div class="donated-wigs">
-      <% @user_wigs.each do |wig| %>
-        <table>
-          <tr><td>Color: </td><td><%= wig.color %></td></tr>
-          <tr><td>Length: </td><td><%= wig.length %></td></tr>
-          <tr><td>Gender: </td><td><%= wig.gender %></td></tr>
-          <tr><td>Material: </td><td><%= wig.material %></td></tr>
-          <tr><td>Construction: </td><td><%= wig.construction %></td></td>
-          <tr><td>Condition: </td><td><%= wig.condition %></td></tr>
-          <tr><td>Size: </td><td><%= wig.size %></td></tr>
-          <tr><td>Texture: </td><td><%= wig.texture %></td></tr>
-          <tr><td>Style: </td><td><%= wig.style %></td></tr>
-          <tr><td>Retail estimate: </td><td><%= wig.retail_estimate %></td></tr>
-        </table>
+      <% if @user_wigs.count == 0 %>
+        <p>No donated wigs to display.</p>
+      <% else %>
+        <% @user_wigs.each do |wig| %>
+          <table>
+            <tr><td>Color: </td><td><%= wig.color %></td></tr>
+            <tr><td>Length: </td><td><%= wig.length %></td></tr>
+            <tr><td>Gender: </td><td><%= wig.gender %></td></tr>
+            <tr><td>Material: </td><td><%= wig.material %></td></tr>
+            <tr><td>Construction: </td><td><%= wig.construction %></td></td>
+            <tr><td>Condition: </td><td><%= wig.condition %></td></tr>
+            <tr><td>Size: </td><td><%= wig.size %></td></tr>
+            <tr><td>Texture: </td><td><%= wig.texture %></td></tr>
+            <tr><td>Style: </td><td><%= wig.style %></td></tr>
+            <tr><td>Retail estimate: </td><td><%= wig.retail_estimate %></td></tr>
+          </table>
+        <% end %>
       <% end %>
     </div>
   </div>
